@@ -1,0 +1,27 @@
+:root {
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+  min-width: 320px;
+  --dark-olive: #191a15;
+  --transparent-dark-olive: rgba(25, 26, 21, 0.1);
+  --green-mint: #54be96;
+  --transparent-mint-green: rgba(84, 190, 150, 0.2);
+  --lime-green: #38cd3e;
+  --light-gray: #fbfbfb;
+  --golden-yellow: #ffc531;
+}
+
+.container {
+  padding-right: 128px;
+  padding-left: 128px;
+}
+
+.btnText {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+a{
+  text-decoration: none;
+}
