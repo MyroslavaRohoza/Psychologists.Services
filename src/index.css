@@ -2,6 +2,7 @@
   font-family: "Inter", sans-serif;
   line-height: 1.5;
   min-width: 320px;
+  background-color: var(--light-gray);
   --dark-olive: #191a15;
   --transparent-dark-olive: rgba(25, 26, 21, 0.1);
   --green-mint: #54be96;
@@ -9,6 +10,32 @@
   --lime-green: #38cd3e;
   --light-gray: #fbfbfb;
   --golden-yellow: #ffc531;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+ul,
+li,
+input {
+  margin: 0;
+}
+
+img {
+  display: block;
+}
+
+a,
+a:active,
+a:hover,
+a:focus {
+  color: inherit;
+}
+
+body {
+  letter-spacing: -0.02em;
 }
 
 .container {
@@ -22,6 +49,6 @@
   line-height: 20px;
 }
 
-a{
+a {
   text-decoration: none;
 }
