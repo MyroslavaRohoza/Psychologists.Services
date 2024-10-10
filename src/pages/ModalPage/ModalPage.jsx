@@ -1,13 +1,12 @@
 import React from "react";
 import MainModal from "../../components/MainModal/MainModal";
-import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
+import LogInForm from "../../components/LogInForm/LogInForm";
 
 const ModalPage = () => {
   return (
     <div>
       <MainModal>
-
-        <RegistrationForm />
+        <LogInForm />
       </MainModal>
     </div>
   );

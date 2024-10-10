@@ -3,6 +3,7 @@
   border: 1px solid var(--transparent-dark-olive);
   border-radius: 12px;
   padding: 16px 0px 16px 18px;
+  background-color: inherit;
   outline: none;
 }
 

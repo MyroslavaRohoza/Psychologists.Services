@@ -4,7 +4,6 @@ const GreenBtn = ({ children, padding, height }) => {
     <button
       className={`${css.greenBtn} btnText ${css.textColor}`}
       style={{ padding: padding, width: padding ? 'auto' : '100%', height: padding || height}}
-
     >
       {children}
     </button>

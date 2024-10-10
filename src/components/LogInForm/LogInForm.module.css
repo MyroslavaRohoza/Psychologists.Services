@@ -1,0 +1,32 @@
+.title {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--dark-olive);
+  letter-spacing: -0.02em;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.description {
+  color: var(--dark-olive);
+  opacity: 0.5;
+  width: 438px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 40px 0;
+}
+
+.eyeOffIcon{
+      display: block;
+  fill: red;
+  color: red;
+  stroke: red;
+  width: 1px;
+  height: 1px;
+  background-color: red;
+}
