@@ -6,7 +6,6 @@ import GreenBtn from "../GreenBtn/GreenBtn";
 import eye from "../../assets/icons/eye.svg";
 import eyeOff from "../../assets/icons/eye-off.svg";
 
-
 const LogInForm = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
@@ -19,7 +18,7 @@ const LogInForm = () => {
       </p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formContainer}>
-          <div>
+         
             <InputField
               type="email"
               placeholder="Email"
@@ -27,25 +26,27 @@ const LogInForm = () => {
               register={register}
               required
             />
-            <ReactSVG
-              src={eye}
-              style={{ fill: "green" }}
-              className={css.eyeOffIcon}
-              beforeInjection={(svg) => {
-                svg.classList.add({
-                  [css.eyeOffIcon]: true,});
-                svg.setAttribute("style", "width: 20px");
-              }}
+          <div className={css.inputPasswordContainer}>
+            <InputField
+              type="password"
+              placeholder="Password"
+              inputName="userPassword"
+              register={register}
+              required
             />
+            <button type="button" className={css.eyeBtn} >
+              <ReactSVG
+                src={eyeOff}
+                beforeInjection={(svg) => {
+                  svg.setAttribute(
+                    "style",
+                    "width: 20px; height: 20px; color: var(--dark-olive);"
+                  );
+                }}
+                className={css.eyeIcon}
+              />
+            </button>
           </div>
-
-          <InputField
-            type="password"
-            placeholder="Password"
-            inputName="userPassword"
-            register={register}
-            required
-          />
         </div>
         <GreenBtn height={"52px"}>Sign Up</GreenBtn>
       </form>
