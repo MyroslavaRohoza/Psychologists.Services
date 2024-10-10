@@ -16,29 +16,30 @@ const HomePage = () => {
       </div>
       <div className={css.imgContainer}>
         <div className={css.questionContainer}>
-      <img
-          src="src/assets/img/blockQuestion.png"
-          alt="question block"
-        />
-        <img
-          src="src/assets/img/fa6-solid_question.png" className={css.questionImg}
-          alt="question"
-        />
-    </div>
+          <img src="src/assets/img/blockQuestion.png" alt="question block" />
+          <img
+            src="src/assets/img/fa6-solid_question.png"
+            className={css.questionImg}
+            alt="question"
+          />
+        </div>
         <img
           src="src/assets/img/blockPeople.png"
           alt="block"
           className={css.peopleBlock}
         />
-    
-
         <img
           src="src/assets/img/psychologist.jpg"
           alt="psychologist"
           className={css.img}
         />
-        <img src="src/assets/img/experienced_block.png" alt="experience" className={css.experienceBlock} />
+        <img
+          src="src/assets/img/experienced_block.png"
+          alt="experience"
+          className={css.experienceBlock}
+        />
       </div>
+ 
     </div>
   );
 };
