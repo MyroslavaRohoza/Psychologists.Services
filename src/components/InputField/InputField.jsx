@@ -7,12 +7,14 @@ import { useState } from "react";
 const InputField = ({ type, placeholder, inputName, register, required }) => {
   const [passwordInputType, setPasswordInputType] = useState(type);
 
+
   const onEyeBtnClick = () => {
     if (passwordInputType === "password") {
       setPasswordInputType("text");
     } else {
       setPasswordInputType("password");
     }
+    console.log(passwordInputType);
   };
 
   return (
@@ -20,7 +22,7 @@ const InputField = ({ type, placeholder, inputName, register, required }) => {
       {type === "password" && (
         <button type="button" className={css.eyeBtn} onClick={onEyeBtnClick}>
           <ReactSVG
-            src={passwordInputType === "password" ? eye : eyeOff}
+            src={eyeOff}
             beforeInjection={(svg) => {
               svg.setAttribute(
                 "style",
@@ -31,9 +33,8 @@ const InputField = ({ type, placeholder, inputName, register, required }) => {
           />
         </button>
       )}
-
       <input
-        type={type}
+        type={passwordInputType}
         placeholder={placeholder}
         {...register(inputName, { required })}
         className={css.input}
