@@ -6,7 +6,6 @@ const getData = async () => {
   const dataRef = ref(db, "/");
   try {
     const psychologists = await get(dataRef);
-    console.log(psychologists);
     if (psychologists.exists()) {
       const data = psychologists.val();
       exportData(data);
@@ -14,7 +13,7 @@ const getData = async () => {
       console.log("No data available");
     }
   } catch (error) {
-    console.error(error);
+    throw new Error(error);
   }
 };
 
@@ -22,4 +21,4 @@ function exportData(data) {
   store.getState().setPsyhologyList(data);
 }
 
-getData();
+export default getData;
