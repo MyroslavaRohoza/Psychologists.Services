@@ -1,6 +1,10 @@
 .psychologiesItem {
   background-color: var(--light-gray);
   border-radius: 24px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+ grid-column-gap: 24px;
+  padding: 24px;
 }
 
 .psychologistAvatar {
@@ -15,6 +19,9 @@
   border-radius: 30px;
   display: inline-block;
   position: relative;
+  width: 120px;
+  height: 120px;
+  gap: 24px;
 }
 
 .circle {
@@ -37,4 +44,59 @@
   border-radius: 50%;
   width: 9.33px;
   height: 9.33px;
+}
+
+.psychologistInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.rating {
+  position: relative;
+}
+
+.rating::before {
+  content: "";
+  display: block;
+  width: 1px;
+  background-color: rgba(25, 26, 21, 0.2);
+  position: absolute;
+  height: 16px;
+  top: 4px;
+  right: -16px;
+}
+
+.ratingPriceContainer{
+  display: flex;
+  gap: 32px;
+}
+
+.heartBtn{
+  border: none;
+  background-color: inherit;
+}
+
+.name{
+    font-size: 24px;
+}
+
+.price{
+    color: var(--lime-green);
+    font-weight: 500;
+}
+
+.type{
+    text-align: left;
 }

@@ -11,6 +11,7 @@
   --light-gray: #fbfbfb;
   --golden-yellow: #ffc531;
   --body-color: #F3F3F3;
+  --grey-text: #8A8A89;
 }
 
 p,
@@ -26,6 +27,15 @@ input {
 
 img {
   display: block;
+}
+
+.text-grey {
+  color: var(--grey-text);
+}
+
+.text-dark-olive {
+  color: var(--dark-olive);
+  font-weight: 500;
 }
 
 a,

@@ -1,10 +1,9 @@
-import React from "react";
 
 const PsychologistDetailsItem = ({ detail, value }) => {
   return (
     <span>
-      {detail}
-      <p>{value}</p>
+      <p className={"text-grey"}>{detail}</p>
+      {value}
     </span>
   );
 };
