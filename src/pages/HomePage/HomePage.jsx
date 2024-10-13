@@ -39,7 +39,6 @@ const HomePage = () => {
           className={css.experienceBlock}
         />
       </div>
- 
     </div>
   );
 };

@@ -1,9 +1,5 @@
-import { store } from "./store";
+export const getOpen = (state) => state.modals.open;
 
-const createSelectors = (store) => ({
-  psyhologies: {
-    getPsyhologyList: () => store.getState().psyhologiesList,
-  },
-});
+export const getModalName = (state) => state.modals.modalName;
 
-export const usePsyhologiesStore = createSelectors(store);
+export const getPsyhologiesList = (state) => state.psychologies.psyhologiesList;
