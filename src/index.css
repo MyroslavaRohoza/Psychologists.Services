@@ -2,7 +2,7 @@
   font-family: "Inter", sans-serif;
   line-height: 1.5;
   min-width: 320px;
-  background-color: var(--light-gray);
+  background-color: var(--body-color);
   --dark-olive: #191a15;
   --transparent-dark-olive: rgba(25, 26, 21, 0.1);
   --green-mint: #54be96;
@@ -10,6 +10,7 @@
   --lime-green: #38cd3e;
   --light-gray: #fbfbfb;
   --golden-yellow: #ffc531;
+  --body-color: #F3F3F3;
 }
 
 p,
@@ -65,4 +66,8 @@ button {
 
 ul {
   list-style: none;
+}
+
+img{
+  display: block;
 }

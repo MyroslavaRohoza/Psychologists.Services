@@ -1,3 +1,5 @@
+import css from "./PsychologiesListItem.module.css";
+import { Link } from "react-router-dom";
 import PsychologistDetails from "../PsychologistDetails/PsychologistDetails";
 
 const PsychologiesListItem = ({
@@ -9,11 +11,15 @@ const PsychologiesListItem = ({
   license,
   specialization,
   initial_consultation,
+  about,
 }) => {
   return (
-    <li>
-      <div>
-        <img src={avatar_url} alt="" />
+    <li className={css.psychologiesItem}>
+      <div className={css.psychologistAvatarContainer}>
+        <div className={css.circle}>
+          <div className={css.greenCircle}></div>
+        </div>
+        <img src={avatar_url} alt={name} className={css.psychologistAvatar} />
       </div>
       <div>
         <div>
@@ -35,6 +41,8 @@ const PsychologiesListItem = ({
           specialization={specialization}
           initial_consultation={initial_consultation}
         />
+        <p>{about}</p>
+        <Link>Read more</Link>
       </div>
     </li>
   );
