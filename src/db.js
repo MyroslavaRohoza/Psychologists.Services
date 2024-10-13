@@ -1,6 +1,6 @@
 import { ref, get } from "firebase/database";
 import { db } from "./firebase";
-import { store } from "./zustand/store";
+import { useBoundStore } from "./zustand/store";
 
 const getData = async () => {
   const dataRef = ref(db, "/");
@@ -18,7 +18,7 @@ const getData = async () => {
 };
 
 function exportData(data) {
-  store.getState().setPsyhologyList(data);
+  useBoundStore.getState().setPsyhologiesList(data);
 }
 
 export default getData;

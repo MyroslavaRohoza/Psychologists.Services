@@ -1,10 +1,11 @@
 import css from './PsychologiesList.module.css';
 import { nanoid } from 'nanoid';
-import { usePsyhologiesStore } from '../../zustand/selectors';
+import { getPsyhologiesList} from '../../zustand/selectors';
 import PsychologiesListItem from '../PsychologiesListItem/PsychologiesListItem';
+import { useBoundStore } from '../../zustand/store';
 
 const PsychologiesList = () => {
-  const psychologiesArray = usePsyhologiesStore.psyhologies.getPsyhologyList();
+  const psychologiesArray = useBoundStore(getPsyhologiesList);
 
     console.log(psychologiesArray);
   return (
