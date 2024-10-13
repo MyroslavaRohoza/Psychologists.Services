@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import PsychologiesList from "../../components/PsychologiesList/PsychologiesList";
 import { getPsyhologiesList } from "../../zustand/selectors";
-import getData from "../../db";
 import { useBoundStore } from "../../zustand/store";
+import getData from "../../firebase/db";
 
 const PsychologistsPage = () => {
  useEffect(() => {

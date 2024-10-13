@@ -4,19 +4,21 @@ import Fade from "@mui/material/Fade";
 import Box from "@mui/material/Box";
 import { ReactSVG } from "react-svg";
 import x_icon from "../../assets/icons/x.svg";
-import { useState } from "react";
+import { useBoundStore } from "../../zustand/store";
+import { getOpen, setModalName, setOpen } from "../../zustand/selectors";
 
 const MainModal = ({ children }) => {
-  const [open, setOpen] = useState(true);
+  const open = useBoundStore(getOpen);
 
-  const handleOpen = () => setOpen(true);
-
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setModalName("");
+  };
 
   return (
     <Modal
       open={open}
-      //   onClose={handleClose}
+      // onClose={true}
       //   aria-labelledby="parent-modal-title"
       //   aria-describedby="parent-modal-description"
       closeAfterTransition
@@ -28,7 +30,7 @@ const MainModal = ({ children }) => {
         onExited={() => {
           console.log("Modal closed.");
         }}
-        timeout={{ enter: 300, exit: 300 }}      
+        timeout={{ enter: 300, exit: 300 }}
       >
         <Box
           sx={{

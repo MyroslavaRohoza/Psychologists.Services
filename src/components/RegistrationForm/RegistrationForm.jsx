@@ -6,6 +6,7 @@ import GreenBtn from "../GreenBtn/GreenBtn";
 const RegistrationForm = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
+
   return (
     <>
       <h2 className={css.title}>Registration</h2>
@@ -37,7 +38,7 @@ const RegistrationForm = () => {
             required
           />
         </div>
-        <GreenBtn height={'52px'} >Sign Up</GreenBtn>
+        <GreenBtn height={"52px"}>Sign Up</GreenBtn>
       </form>
     </>
   );
