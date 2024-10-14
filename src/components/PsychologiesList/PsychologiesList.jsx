@@ -4,6 +4,7 @@ import { getPsyhologiesList} from '../../zustand/selectors';
 import PsychologiesListItem from '../PsychologiesListItem/PsychologiesListItem';
 import { useBoundStore } from '../../zustand/store';
 
+
 const PsychologiesList = () => {
   const psychologiesArray = useBoundStore(getPsyhologiesList);
 

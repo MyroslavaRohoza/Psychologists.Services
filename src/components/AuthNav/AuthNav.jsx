@@ -34,10 +34,6 @@ export const AuthNav = () => {
     setUserInfo(initialState);
   });
 
-  if (!isSignedIn) { 
-
-  }
-
   return (
     <div className={`${css.headerNav} ${!isSignedIn ? css.addGap : ""}`}>
       {isSignedIn ? (
