@@ -1,13 +1,15 @@
+export const initialState = {
+  isSignedIn: false,
+  displayName: "",
+  accessToken: "",
+  refreshToken: "",
+  reloadUserInfo: {},
+  validSince: null,
+  uid: "",
+};
+
 export const userSlice = (set) => ({
-  user: {
-    isSignedIn: false,
-    displayName: "",
-    accessToken: "",
-    refreshToken: "",
-    reloadUserInfo: {},
-    validSince: null,
-    uid: "",
-  },
+  user: initialState,
   setUserInfo: (userInfo) =>
     set((state) => ({
       user: (state.user = {

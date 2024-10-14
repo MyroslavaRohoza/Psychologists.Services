@@ -5,10 +5,11 @@ import InputField from "../InputField/InputField";
 import GreenBtn from "../GreenBtn/GreenBtn";
 import eye from "../../assets/icons/eye.svg";
 import eyeOff from "../../assets/icons/eye-off.svg";
+import { loginUser } from "../../firebase/login";
 
 const LogInForm = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = ({ userEmail, userPassword }) => loginUser(userEmail, userPassword) ;
   return (
     <>
       <h2 className={css.title}>Log In</h2>

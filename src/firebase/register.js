@@ -1,12 +1,13 @@
+
 import {
   getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { unstable_batchedUpdates } from "react-dom";
-import { setUserInfo } from "../zustand/selectors";
-
-const auth = getAuth();
+import { loadUserInfo } from "../js/utilities";
+import { app } from "./firebase";
+;
+const auth = getAuth(app);
 export const registerUser = async (name, email, password) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(
@@ -22,35 +23,32 @@ export const registerUser = async (name, email, password) => {
       displayName: name,
     })
       .then(() => {
+        const {
+          displayName,
+          accessToken,
+          refreshToken,
+          reloadUserInfo,
+          validSince,
+          uid,
+        } = user;
+        console.log("User name:", displayName);
+
+        loadUserInfo({
+          displayName:name,
+          accessToken,
+          refreshToken,
+          reloadUserInfo,
+          validSince,
+          uid,
+        });
         console.log("Profile updated successfully with name:", name);
       })
       .catch((error) => {
         console.error("Error updating profile:", error);
       });
-    const { displayName, accessToken, refreshToken, reloadUserInfo, validSince, uid } =
-      user;
-    
-    console.log("User info:", displayName);
-
-    loadUserInfo(
-      displayName,
-      accessToken,
-      refreshToken,
-      reloadUserInfo,
-      validSince,
-      uid
-    );
   } catch (error) {
     console.error("Error registering user:", error.message);
     throw error;
   }
 };
 
-const loadUserInfo = (...info) => {
-  unstable_batchedUpdates(() => {
-    setUserInfo({
-      ...info,
-      isSignedIn: true,
-    });
-  });
-};
