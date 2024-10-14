@@ -11,10 +11,9 @@ export const initialState = {
 export const userSlice = (set) => ({
   user: initialState,
   setUserInfo: (userInfo) =>
+    
     set((state) => ({
-      user: (state.user = {
-        ...userInfo,
-      }),
+      user: (state.user = {...userInfo
+    } ),
     })),
 });
-console.log(userSlice);

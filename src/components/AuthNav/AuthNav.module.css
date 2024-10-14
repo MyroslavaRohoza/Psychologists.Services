@@ -1,5 +1,8 @@
 .headerNav {
   display: flex;
   align-items: center;
-  gap: 8px;
+}
+
+.addGap{
+  gap: 28px;
 }

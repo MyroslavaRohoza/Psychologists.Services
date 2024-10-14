@@ -18,9 +18,6 @@ import { initialState } from "../../zustand/slices/userSlice";
 export const AuthNav = () => {
   const isSignedIn = useBoundStore(getUserInfo).isSignedIn;
   const displayName = useBoundStore(getUserInfo).displayName;
-  console.log(displayName);
-
-  console.log("signed in", isSignedIn);
 
   const onLoginBtnClick = useCallback(() => {
     setOpen(true);
@@ -37,8 +34,12 @@ export const AuthNav = () => {
     setUserInfo(initialState);
   });
 
+  if (!isSignedIn) { 
+
+  }
+
   return (
-    <div className={css.headerNav}>
+    <div className={`${css.headerNav} ${!isSignedIn ? css.addGap : ""}`}>
       {isSignedIn ? (
         <>
           <UserName name={typeof displayName === "string" && displayName} />
