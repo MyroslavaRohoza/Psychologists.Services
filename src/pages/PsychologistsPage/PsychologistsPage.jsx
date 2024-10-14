@@ -7,7 +7,7 @@ import getData from "../../firebase/db";
 const PsychologistsPage = () => {
  useEffect(() => {
    getData();
- })
+ }, [])
 
   const psychologiesArray = useBoundStore(getPsyhologiesList);
 

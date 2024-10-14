@@ -1,4 +1,5 @@
 import css from "./MainModal.module.css";
+import { useCallback } from 'react'; 
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Box from "@mui/material/Box";
@@ -10,10 +11,10 @@ import { getOpen, setModalName, setOpen } from "../../zustand/selectors";
 const MainModal = ({ children }) => {
   const open = useBoundStore(getOpen);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setOpen(false);
     setModalName("");
-  };
+  }, [setOpen, setModalName]);
 
   return (
     <Modal

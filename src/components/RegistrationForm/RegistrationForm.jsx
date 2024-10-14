@@ -2,10 +2,13 @@ import css from "./RegistrationForm.module.css";
 import { useForm } from "react-hook-form";
 import InputField from "../InputField/InputField";
 import GreenBtn from "../GreenBtn/GreenBtn";
+import { registerUser } from "../../firebase/register";
 
 const RegistrationForm = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = ({ userName, userEmail, userPassword }) => {
+    registerUser(userName, userEmail, userPassword);
+  };
 
   return (
     <>

@@ -1,6 +1,7 @@
 import { ref, get } from "firebase/database";
 import { db } from "./firebase";
 import { setPsyhologiesList } from "../zustand/selectors";
+import { unstable_batchedUpdates } from "react-dom";
 
 const getData = async () => {
   const dataRef = ref(db, "/");
@@ -18,7 +19,9 @@ const getData = async () => {
 };
 
 function exportData(data) {
-  setPsyhologiesList(data);
+  unstable_batchedUpdates(() => {
+    setPsyhologiesList(data);
+  });
 }
 
 export default getData;
