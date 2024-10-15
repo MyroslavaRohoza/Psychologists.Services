@@ -10,7 +10,7 @@ const PsychologistDetails = ({ ...details }) => {
     ));
   }, [details]);
 
-  return <div className={css.psychologistDetails}>{detailsInfo}</div>;
+  return <ul className={css.psychologistDetails}>{detailsInfo}</ul>;
 };
 
 export default PsychologistDetails;

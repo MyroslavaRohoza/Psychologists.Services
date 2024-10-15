@@ -2,8 +2,9 @@ import css from "./PsychologiesListItem.module.css";
 import star from "../../assets/icons/star.svg";
 import heart from "../../assets/icons/heart.svg";
 import { ReactSVG } from "react-svg";
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import PsychologistDetails from "../PsychologistDetails/PsychologistDetails";
+import Reviews from "../Reviews/Reviews";
 
 const PsychologiesListItem = ({
   avatar_url,
@@ -39,7 +40,8 @@ const PsychologiesListItem = ({
             </div>
             <div className={css.priceContainer}>
               <p className={"text-dark-olive"}>
-                Price / 1 hour: <span className={css.price}>{price_per_hour}$</span>
+                Price / 1 hour:{" "}
+                <span className={css.price}>{price_per_hour}$</span>
               </p>
               <button className={css.heartBtn}>
                 <ReactSVG
@@ -62,8 +64,18 @@ const PsychologiesListItem = ({
             specialization={specialization}
             initial_consultation={initial_consultation}
           />
-          <p className={"text-grey"}>{about}</p>
-          <Link>Read more</Link>
+          <p className={`text-grey ${css.about}`}>{about}</p>
+          <div>
+            <Link to="reviews" className={css.readMoreLink}>
+              Read more
+            </Link>
+            <Routes>
+              <Route
+                path="reviews"
+                element={<Reviews reviews={"kkkkkkkkkkkkkkkkkkkkk"} />}
+              />
+            </Routes>
+          </div>
         </div>
       </div>
     </li>

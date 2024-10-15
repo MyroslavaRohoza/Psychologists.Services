@@ -1,9 +1,5 @@
 .psychologistDetails {
-  display: inline-grid;
-  grid-template-columns: repeat(2, auto);
-  grid-template-rows: min-content min-content;
-  grid-gap: 8px 4px;
-
-  justify-items: start;
- 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 4px;
 }
