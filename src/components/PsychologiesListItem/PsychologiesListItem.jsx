@@ -1,10 +1,10 @@
 import css from "./PsychologiesListItem.module.css";
+import ReadMore from "../ReadMore/ReadMore";
 import star from "../../assets/icons/star.svg";
 import heart from "../../assets/icons/heart.svg";
 import { ReactSVG } from "react-svg";
-import { Link, NavLink, Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 import PsychologistDetails from "../PsychologistDetails/PsychologistDetails";
-import Reviews from "../Reviews/Reviews";
 import clsx from "clsx";
 
 const PsychologiesListItem = ({
@@ -81,7 +81,7 @@ const PsychologiesListItem = ({
             <Routes>
               <Route
                 path={`${name}/reviews`}
-                element={<Reviews reviews={reviews} />}
+                element={<ReadMore reviews={reviews} />}
               />
             </Routes>
           </div>

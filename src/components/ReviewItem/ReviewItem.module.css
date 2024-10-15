@@ -32,7 +32,10 @@
   gap: 5px;
 }
 
-.comment{
-  margin-top: 16px;
+.reviewItem{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 25px;
 }
 
