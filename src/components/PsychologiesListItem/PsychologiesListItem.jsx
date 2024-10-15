@@ -2,9 +2,10 @@ import css from "./PsychologiesListItem.module.css";
 import star from "../../assets/icons/star.svg";
 import heart from "../../assets/icons/heart.svg";
 import { ReactSVG } from "react-svg";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, NavLink, Route, Routes } from "react-router-dom";
 import PsychologistDetails from "../PsychologistDetails/PsychologistDetails";
 import Reviews from "../Reviews/Reviews";
+import clsx from "clsx";
 
 const PsychologiesListItem = ({
   avatar_url,
@@ -16,7 +17,15 @@ const PsychologiesListItem = ({
   specialization,
   initial_consultation,
   about,
+  reviews,
 }) => {
+  const buildLinkClass = ({ isActive }) => {
+    return clsx(
+      css.readMoreLink,
+      isActive && css.activeNavLink
+    );
+  };
+
   return (
     <li className={css.psychologiesItem}>
       <div className={css.psychologistAvatarContainer}>
@@ -66,13 +75,13 @@ const PsychologiesListItem = ({
           />
           <p className={`text-grey ${css.about}`}>{about}</p>
           <div>
-            <Link to="reviews" className={css.readMoreLink}>
+            <NavLink to={`${name}/reviews`} className={buildLinkClass}>
               Read more
-            </Link>
+            </NavLink>
             <Routes>
               <Route
-                path="reviews"
-                element={<Reviews reviews={"kkkkkkkkkkkkkkkkkkkkk"} />}
+                path={`${name}/reviews`}
+                element={<Reviews reviews={reviews} />}
               />
             </Routes>
           </div>

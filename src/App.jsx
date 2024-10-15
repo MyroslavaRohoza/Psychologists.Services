@@ -4,7 +4,6 @@ import Layout from "./components/Layout/Layout";
 import HomePage from "./pages/HomePage/HomePage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import PsychologistsPage from "./pages/PsychologistsPage/PsychologistsPage";
-import ModalPage from "./pages/ModalPage/ModalPage";
 import MainModal from "./components/MainModal/MainModal";
 import { useBoundStore } from "./zustand/store";
 import { getModalName } from "./zustand/selectors";
@@ -21,11 +20,10 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
-        <Route path="/modal" element={<ModalPage />} />
+        <Route path="/psychologists" element={<PsychologistsPage />} />
         <Route path="/psychologists/*" element={<PsychologistsPage />}>
           <Route path="reviews" element={<Reviews />} />
         </Route>
-        {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Routes>
       <MainModal>
         {(modalName === "LogIn" && <LogInForm />) ||

@@ -1,0 +1,7 @@
+.reviewsList {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 25px;
+  justify-content: start;
+  margin: 48px 0px 40px 0px;
+}
