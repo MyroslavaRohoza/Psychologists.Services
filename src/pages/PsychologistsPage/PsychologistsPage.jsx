@@ -1,3 +1,4 @@
+import css from "./Psychologists.module.css";
 import { useEffect } from "react";
 import PsychologiesList from "../../components/PsychologiesList/PsychologiesList";
 import { getPsyhologiesList } from "../../zustand/selectors";
@@ -14,7 +15,7 @@ const PsychologistsPage = () => {
 
   console.log(psychologiesArray);
   return (
-    <div>
+    <div className={css.psychologistsPageContainer}>
       <SelectFilter />
       <PsychologiesList />
     </div>

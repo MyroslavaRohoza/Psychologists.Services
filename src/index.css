@@ -7,7 +7,7 @@
   --transparent-dark-olive: rgba(25, 26, 21, 0.1);
   --green-mint: #54be96;
   --transparent-mint-green: rgba(84, 190, 150, 0.2);
-  --lime-green: #38cd3e;
+  --lime-green:#38cd3e; 
   --light-gray: #fbfbfb;
   --golden-yellow: #ffc531;
   --body-color: #F3F3F3;
@@ -21,6 +21,7 @@ h3,
 h4,
 ul,
 li,
+label,
 input {
   margin: 0;
 }
