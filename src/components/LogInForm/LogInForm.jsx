@@ -6,27 +6,31 @@ import GreenBtn from "../GreenBtn/GreenBtn";
 import eye from "../../assets/icons/eye.svg";
 import eyeOff from "../../assets/icons/eye-off.svg";
 import { loginUser } from "../../firebase/login";
+import FormTitle from "../FormTitle/FormTitle";
+import FormDescription from "../FormDescription/FormDescription";
 
 const LogInForm = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = ({ userEmail, userPassword }) => loginUser(userEmail, userPassword) ;
+  const onSubmit = ({ userEmail, userPassword }) =>
+    loginUser(userEmail, userPassword);
   return (
-    <>
-      <h2 className={css.title}>Log In</h2>
-      <p className={css.description}>
-        Welcome back! Please enter your credentials to access your account and
-        continue your search for a psychologist.
-      </p>
+    <div className={css.logInFormContainer}>
+      <div>
+        <FormTitle>Log In</FormTitle>
+        <FormDescription>
+          Welcome back! Please enter your credentials to access your account and
+          continue your search for a psychologist.
+        </FormDescription>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formContainer}>
-         
-            <InputField
-              type="email"
-              placeholder="Email"
-              inputName="userEmail"
-              register={register}
-              required
-            />
+          <InputField
+            type="email"
+            placeholder="Email"
+            inputName="userEmail"
+            register={register}
+            required
+          />
           <div className={css.inputPasswordContainer}>
             <InputField
               type="password"
@@ -35,7 +39,7 @@ const LogInForm = () => {
               register={register}
               required
             />
-            <button type="button" className={css.eyeBtn} >
+            <button type="button" className={css.eyeBtn}>
               <ReactSVG
                 src={eyeOff}
                 beforeInjection={(svg) => {
@@ -51,7 +55,7 @@ const LogInForm = () => {
         </div>
         <GreenBtn height={"52px"}>Sign Up</GreenBtn>
       </form>
-    </>
+    </div>
   );
 };
 

@@ -81,7 +81,12 @@ const PsychologiesListItem = ({
             <Routes>
               <Route
                 path={`${name}/reviews`}
-                element={<ReadMore reviews={reviews} />}
+                element={
+                  <ReadMore
+                    reviews={reviews}
+                    psychologistsInfo={{ name, avatar_url }}
+                  />
+                }
               />
             </Routes>
           </div>

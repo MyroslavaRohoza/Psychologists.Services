@@ -1,24 +1,30 @@
-import css from "./RegistrationForm.module.css";
+import css from "./AppointmentForm.module.css";
 import { useForm } from "react-hook-form";
 import InputField from "../InputField/InputField";
 import GreenBtn from "../GreenBtn/GreenBtn";
 import { registerUser } from "../../firebase/register";
 import FormTitle from "../FormTitle/FormTitle";
 import FormDescription from "../FormDescription/FormDescription";
+import YourPsychologists from "../YourPsychologists/YourPsychologists";
 
-const RegistrationForm = () => {
+const AppointmentForm = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = ({ userName, userEmail, userPassword }) => {
     registerUser(userName, userEmail, userPassword);
   };
 
   return (
-    <div className={css.registrationFormContainer}>
-      <FormTitle>Registration</FormTitle>
-      <FormDescription>
-        Thank you for your interest in our platform! In order to register, we
-        need some information. Please provide us with the following information.
-      </FormDescription>
+    <div className={css.appointmentFormContainer}>
+      <div className={css.titleDescriptionContainer}>
+        <FormTitle>Make an appointment with a psychologists</FormTitle>
+        <FormDescription>
+          You are on the verge of changing your life for the better. Fill out
+          the short form below to book your personal appointment with a
+          professional psychologist. We guarantee confidentiality and respect
+          for your privacy.
+        </FormDescription>
+      </div>
+      <YourPsychologists />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formContainer}>
           <InputField
@@ -49,4 +55,4 @@ const RegistrationForm = () => {
   );
 };
 
-export default RegistrationForm;
+export default AppointmentForm;

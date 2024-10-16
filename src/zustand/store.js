@@ -9,6 +9,7 @@ export const useBoundStore = create(
     ...modalsSlice(...a),
     ...psychologiesSlice(...a),
     ...userSlice(...a),
+    ...psychologiesSlice(...a),
   })),
   {
     name: "user-storage",

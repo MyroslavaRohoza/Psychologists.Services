@@ -11,6 +11,7 @@ import LogInForm from "./components/LogInForm/LogInForm";
 import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
 import LogOutInfo from "./components/LogOutInfo/LogOutInfo";
 import Reviews from "./components/Reviews/Reviews";
+import AppointmentForm from "./components/AppointmentForn/AppointmentForm";
 
 function App() {
   const modalName = useBoundStore(getModalName);
@@ -28,7 +29,8 @@ function App() {
       <MainModal>
         {(modalName === "LogIn" && <LogInForm />) ||
           (modalName === "Register" && <RegistrationForm />) ||
-          (modalName === "LogOut" && <LogOutInfo />)}
+          (modalName === "LogOut" && <LogOutInfo />) ||
+          (modalName === "Appointment" && <AppointmentForm />)}
       </MainModal>
     </Layout>
   );
