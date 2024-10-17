@@ -25,12 +25,12 @@ const PsychologiesListItem = ({
 
   return (
     <li className={css.psychologiesItem}>
-      <div className={css.psychologistAvatarContainer}>
+      <span className={css.psychologistAvatarContainer}>
         <div className={css.circle}>
           <div className={css.greenCircle}></div>
         </div>
         <img src={avatar_url} alt={name} className={css.psychologistAvatar} />
-      </div>
+      </span>
       <div className={css.psychologistInfoContainer}>
         <div className={css.psychologistInfo}>
           <div>
