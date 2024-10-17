@@ -8,7 +8,11 @@ import FormDescription from "../FormDescription/FormDescription";
 import YourPsychologists from "../YourPsychologists/YourPsychologists";
 
 const AppointmentForm = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      userAppointmentDate: "00:00",
+    },
+  });
   const onSubmit = ({ userName, userEmail, userPassword }) => {
     registerUser(userName, userEmail, userPassword);
   };
@@ -33,20 +37,40 @@ const AppointmentForm = () => {
             inputName="userName"
             register={register}
             required
-          />
+            addClass={css.formItem1}
+          />      
+            <InputField
+              type="tel"
+              placeholder="+380"
+              inputName="userPhone"
+              register={register}
+              required
+              addClass={css.formItem2}
+            />
+            <InputField
+              type="time"
+              inputName="userAppointmentDate"
+              register={register}
+              required
+              addClass={css.formItem3}
+            />
+          
           <InputField
             type="email"
             placeholder="Email"
             inputName="userEmail"
             register={register}
             required
+            addClass={css.formItem4}
           />
           <InputField
-            type="password"
-            placeholder="Password"
-            inputName="userPassword"
+            type="text"
+            placeholder="Comment"
+            inputName="userComment"
             register={register}
             required
+            textarea
+            addClass={css.formItem5}
           />
         </div>
         <GreenBtn height={"52px"}>Sign Up</GreenBtn>

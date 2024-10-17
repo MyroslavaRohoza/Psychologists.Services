@@ -1,7 +1,8 @@
 .formContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: repeat(4, 1fr);
+  grid-gap: 18px 8px;
   margin-bottom: 40px;
 }
 
@@ -10,4 +11,7 @@
   flex-direction: column;
   width: 600px;
   gap: 40px;
+}
+.formItem1, .formItem4, .formItem5{
+  grid-column: span 2;
 }
