@@ -11,7 +11,7 @@
   width: 96px;
   height: 96px;
   border-radius: 15px;
- 
+  
 }
 
 .psychologistAvatarContainer {
@@ -20,7 +20,11 @@
   position: relative;
   gap: 24px;
   height: 120px;
- padding: 12px;
+  width: 120px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .circle {
@@ -110,6 +114,6 @@
   text-decoration: underline;
   text-align: left;
 }
-.activeNavLink{
+.activeNavLink {
   display: none;
 }

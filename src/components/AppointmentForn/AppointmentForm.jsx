@@ -40,7 +40,6 @@ const AppointmentForm = () => {
             inputName="userName"
             register={register}
             required
-            addClass={css.formItem1}
           />
           <div className={css.phoneInputContainer}>
             <InputField
@@ -49,14 +48,12 @@ const AppointmentForm = () => {
               inputName="userPhone"
               register={register}
               required
-              addClass={css.formItem2}
             />
             <InputField
               type="time"
               inputName="userAppointmentDate"
               register={register}
               required
-              addClass={css.formItem3}
             />
           </div>
           <InputField
@@ -65,7 +62,6 @@ const AppointmentForm = () => {
             inputName="userEmail"
             register={register}
             required
-            addClass={css.formItem4}
           />
           <InputField
             type="text"
@@ -74,7 +70,6 @@ const AppointmentForm = () => {
             register={register}
             required
             textarea
-            addClass={css.formItem5}
           />
         </div>
         <GreenBtn height={"52px"}>Sign Up</GreenBtn>

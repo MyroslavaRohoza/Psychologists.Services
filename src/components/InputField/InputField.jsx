@@ -13,14 +13,9 @@ const InputField = ({
   textarea,
   addClass,
 }) => {
-  const [passwordInputType, setPasswordInputType] = useState(type);
+  const [showPassword, setShowPassword] = useState(false);
   const onEyeBtnClick = () => {
-    if (passwordInputType === "password") {
-      setPasswordInputType("text");
-    } else {
-      setPasswordInputType("password");
-    }
-    console.log(passwordInputType);
+    setShowPassword((prev) => !prev);
   };
 
   return textarea ? (
@@ -33,11 +28,11 @@ const InputField = ({
       className={`${css.input} ${css.textarea} ${addClass && addClass}`}
     />
   ) : (
-    <div className={type === "password" && css.inputPasswordContainer}>
+    <div className={type === "password" ? css.inputPasswordContainer : ""}>
       {type === "password" && (
         <button type="button" className={css.eyeBtn} onClick={onEyeBtnClick}>
           <ReactSVG
-            src={passwordInputType === "password" ? eyeOff : eye}
+            src={showPassword ? eye : eyeOff}
             beforeInjection={(svg) => {
               svg.setAttribute(
                 "style",
@@ -49,7 +44,7 @@ const InputField = ({
         </button>
       )}
       <input
-        type={passwordInputType}
+        type={showPassword && type === "password" ? "text" : type}
         placeholder={placeholder}
         {...register(inputName, { required })}
         className={`${css.input} ${addClass && addClass}`}
@@ -57,4 +52,5 @@ const InputField = ({
     </div>
   );
 };
+
 export default InputField;
