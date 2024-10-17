@@ -20,8 +20,11 @@ const AppointmentForm = () => {
   return (
     <div className={css.appointmentFormContainer}>
       <div className={css.titleDescriptionContainer}>
-        <FormTitle>Make an appointment with a psychologists</FormTitle>
-        <FormDescription>
+        <FormTitle>
+          Make an appointment
+          <br /> with a psychologists
+        </FormTitle>
+        <FormDescription width={"420px"}>
           You are on the verge of changing your life for the better. Fill out
           the short form below to book your personal appointment with a
           professional psychologist. We guarantee confidentiality and respect
@@ -38,7 +41,8 @@ const AppointmentForm = () => {
             register={register}
             required
             addClass={css.formItem1}
-          />      
+          />
+          <div className={css.phoneInputContainer}>
             <InputField
               type="tel"
               placeholder="+380"
@@ -54,7 +58,7 @@ const AppointmentForm = () => {
               required
               addClass={css.formItem3}
             />
-          
+          </div>
           <InputField
             type="email"
             placeholder="Email"

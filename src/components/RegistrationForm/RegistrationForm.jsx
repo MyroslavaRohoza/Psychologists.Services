@@ -14,11 +14,14 @@ const RegistrationForm = () => {
 
   return (
     <div className={css.registrationFormContainer}>
-      <FormTitle>Registration</FormTitle>
-      <FormDescription>
-        Thank you for your interest in our platform! In order to register, we
-        need some information. Please provide us with the following information.
-      </FormDescription>
+      <div>
+        <FormTitle>Registration</FormTitle>
+        <FormDescription width={"390px"}>
+          Thank you for your interest in our platform! In order to register, we
+          need some information. Please provide us with the following
+          information.
+        </FormDescription>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formContainer}>
           <InputField

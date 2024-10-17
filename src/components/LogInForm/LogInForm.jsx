@@ -17,7 +17,7 @@ const LogInForm = () => {
     <div className={css.logInFormContainer}>
       <div>
         <FormTitle>Log In</FormTitle>
-        <FormDescription>
+        <FormDescription width={"390px"}>
           Welcome back! Please enter your credentials to access your account and
           continue your search for a psychologist.
         </FormDescription>
@@ -31,27 +31,13 @@ const LogInForm = () => {
             register={register}
             required
           />
-          <div className={css.inputPasswordContainer}>
-            <InputField
-              type="password"
-              placeholder="Password"
-              inputName="userPassword"
-              register={register}
-              required
-            />
-            <button type="button" className={css.eyeBtn}>
-              <ReactSVG
-                src={eyeOff}
-                beforeInjection={(svg) => {
-                  svg.setAttribute(
-                    "style",
-                    "width: 20px; height: 20px; color: var(--dark-olive);"
-                  );
-                }}
-                className={css.eyeIcon}
-              />
-            </button>
-          </div>
+          <InputField
+            type="password"
+            placeholder="Password"
+            inputName="userPassword"
+            register={register}
+            required
+          />
         </div>
         <GreenBtn height={"52px"}>Sign Up</GreenBtn>
       </form>

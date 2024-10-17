@@ -20,10 +20,7 @@ const PsychologiesListItem = ({
   reviews,
 }) => {
   const buildLinkClass = ({ isActive }) => {
-    return clsx(
-      css.readMoreLink,
-      isActive && css.activeNavLink
-    );
+    return clsx(css.readMoreLink, isActive && css.activeNavLink);
   };
 
   return (
