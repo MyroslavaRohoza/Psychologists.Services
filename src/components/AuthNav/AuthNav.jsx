@@ -32,7 +32,7 @@ export const AuthNav = () => {
   const logOut = useCallback(() => {
     logoutUser();
     setUserInfo(initialState);
-  });
+  }, [setUserInfo, logoutUser]);
 
   return (
     <div className={`${css.headerNav} ${!isSignedIn ? css.addGap : ""}`}>

@@ -17,7 +17,6 @@ const InputField = ({
   const onEyeBtnClick = () => {
     setShowPassword((prev) => !prev);
   };
-
   return textarea ? (
     <textarea
       name={inputName}

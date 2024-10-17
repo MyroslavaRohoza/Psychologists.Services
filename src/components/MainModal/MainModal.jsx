@@ -19,7 +19,7 @@ const MainModal = ({ children }) => {
   return (
     <Modal
       open={open}
-      // onClose={true}
+      onClose={handleClose}
       //   aria-labelledby="parent-modal-title"
       //   aria-describedby="parent-modal-description"
       closeAfterTransition

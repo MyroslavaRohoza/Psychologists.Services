@@ -12,6 +12,7 @@ import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
 import LogOutInfo from "./components/LogOutInfo/LogOutInfo";
 import Reviews from "./components/Reviews/Reviews";
 import AppointmentForm from "./components/AppointmentForn/AppointmentForm";
+import AuthMessage from "./components/AuthMessage/AuthMessage";
 
 function App() {
   const modalName = useBoundStore(getModalName);
@@ -30,7 +31,8 @@ function App() {
         {(modalName === "LogIn" && <LogInForm />) ||
           (modalName === "Register" && <RegistrationForm />) ||
           (modalName === "LogOut" && <LogOutInfo />) ||
-          (modalName === "Appointment" && <AppointmentForm />)}
+          (modalName === "Appointment" && <AppointmentForm />) ||
+          (modalName === "AuthMessage" && <AuthMessage />)}
       </MainModal>
     </Layout>
   );
