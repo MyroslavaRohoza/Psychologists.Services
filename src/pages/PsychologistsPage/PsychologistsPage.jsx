@@ -3,12 +3,12 @@ import { useEffect } from "react";
 import PsychologiesList from "../../components/PsychologiesList/PsychologiesList";
 import { getPsyhologiesList } from "../../zustand/selectors";
 import { useBoundStore } from "../../zustand/store";
-import getData from "../../firebase/db";
 import SelectFilter from "../../components/SelectFilter/SelectFilter";
+import { fetchPsychologists } from "../../firebase/uploadData";
 
 const PsychologistsPage = () => {
   useEffect(() => {
-    getData();
+    fetchPsychologists();
   }, []);
 
   const psychologiesArray = useBoundStore(getPsyhologiesList);
