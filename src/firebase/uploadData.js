@@ -1,10 +1,10 @@
 import { setPsyhologiesList } from "../zustand/selectors";
 import { unstable_batchedUpdates } from "react-dom";
 
-import { collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, getCountFromServer, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { firestore } from "./firebase.js";
 
-// console.log(psychologists);
+
 // const uploadDataToFirestore = async () => {
 //   try {
 //     console.log("Firestore reference:", firestore);
@@ -22,22 +22,31 @@ import { firestore } from "./firebase.js";
 
 export const fetchPsychologists = async () => {
   try {
-    const psychologistsCollection = collection(firestore, "psychologists");
+    const psychologistsCollection = query(
+      collection(firestore, "psychologists"),
+      // limit(3),
+       orderBy("name", "asc")
+    );
+
+
+    // const psychologistsCollection = collection(firestore, "psychologists");
 
     const querySnapshot = await getDocs(psychologistsCollection);
     const psychologistsData = querySnapshot.docs.map((doc) => ({
       ...doc.data(),
     }));
+    const lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
 
-    console.log("querySnapshot", querySnapshot);
+    console.log("lastVisible", lastVisible);
+    const count = await getCountFromServer(psychologistsCollection);
+
+    console.log('COUNT',count.data().count);
 
     exportData(psychologistsData);
   } catch (error) {
     throw new Error(error);
   }
 };
-
-// fetchPsychologists();
 
 function exportData(data) {
   unstable_batchedUpdates(() => {

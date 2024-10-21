@@ -89,6 +89,7 @@ export default function App() {
           autoWidth
           id="psychologies"
           name="psychologies"
+          onChange={(evt) => console.log('evtttt',evt.target.value)}
         >
           <MenuItem value={"asc"}>A to Z</MenuItem>
           <MenuItem value={"desc"}>Z to A</MenuItem>
