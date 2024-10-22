@@ -31,14 +31,14 @@ export const fetchPsychologists = async (limitQuery, order) => {
   try {
     const psychologistsCollection = query(
       collection(firestore, "psychologists"),
-      limit(3),
-      orderBy("name",'asc')
+      limit(limitQuery),
+      orderBy(...order)
     );
 
     // const psychologistsCollection = collection(firestore, "psychologists");
 
     const querySnapshot = await getDocs(psychologistsCollection);
-    console.log('qq',querySnapshot);
+
     const psychologistsData = querySnapshot.docs.map((doc) => ({
       ...doc.data(),
     }));

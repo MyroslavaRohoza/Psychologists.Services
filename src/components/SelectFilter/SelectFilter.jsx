@@ -1,7 +1,7 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Select, MenuItem, FormControl } from "@mui/material";
 import css from "./SelectFilter.module.css";
-import {  setQueryOrderBy } from "../../zustand/selectors";
+import { setQueryOrderBy, setQueryWhere } from "../../zustand/selectors";
 const theme = createTheme({
   components: {
     MuiSelect: {
@@ -80,7 +80,18 @@ const theme = createTheme({
 
 export default function SelectFilter() {
   const onFilerChange = (evt) => {
-    setQueryOrderBy(evt.target.value);
+    const { value } = evt.target;
+    if (value === "asc" || value === "desc") {
+      setQueryOrderBy(["name", value]);
+    } else if (value === "popular") {
+      setQueryOrderBy(["rating", "asc"]);
+    } else if (value === "notPopular") {
+      setQueryOrderBy(["rating", "desc"]);
+    } else if (value === "lessThan150") {
+      setQueryWhere([("price_per_hour", "<", 150)]);
+    } else if (value === "greaterThan150") {
+      setQueryWhere([("price_per_hour", ">=", 150)]);
+    }
   };
 
   return (
@@ -98,8 +109,8 @@ export default function SelectFilter() {
         >
           <MenuItem value={"asc"}>A to Z</MenuItem>
           <MenuItem value={"desc"}>Z to A</MenuItem>
-          <MenuItem value={"lessThan10"}>Less than 10$</MenuItem>
-          <MenuItem value={"greaterThan10"}>Greater than 10$</MenuItem>
+          <MenuItem value={"lessThan150"}>Less than 150$</MenuItem>
+          <MenuItem value={"greaterThan150"}>Greater than 150$</MenuItem>
           <MenuItem value={"popular"}>Popular</MenuItem>
           <MenuItem value={"notPopular"}>Not popular</MenuItem>
           <MenuItem value={"all"}>Show all</MenuItem>
