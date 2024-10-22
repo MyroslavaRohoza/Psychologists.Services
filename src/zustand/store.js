@@ -3,6 +3,7 @@ import { modalsSlice } from "./slices/modalsSlice";
 import { psychologiesSlice } from "./slices/psychologiesSlice";
 import { userSlice } from "./slices/userSlice";
 import { persist } from "zustand/middleware";
+import { querySlice } from "./slices/query";
 
 export const useBoundStore = create(
   persist((...a) => ({
@@ -10,6 +11,7 @@ export const useBoundStore = create(
     ...psychologiesSlice(...a),
     ...userSlice(...a),
     ...psychologiesSlice(...a),
+    ...querySlice(...a),
   })),
   {
     name: "user-storage",

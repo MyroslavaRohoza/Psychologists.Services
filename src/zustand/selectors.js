@@ -13,6 +13,8 @@ export const getAppointmentPsychologists = (state) =>
 
 export const getSelectedPsyhologies = (state) => state.selectedPsyhologies;
 
+export const getQueryInfo = (state) => state.query;
+
 export const setPsyhologiesList = useBoundStore.getState().setPsyhologiesList;
 
 export const setModalName = useBoundStore.getState().setModalName;
@@ -26,3 +28,11 @@ export const setSelectedPsyhologies =
 
 export const setAppointmentPsychologists =
   useBoundStore.getState().SetAppointmentPsychologists;
+
+export const setQueryInfo = useBoundStore.getState().setQueryInfo;
+
+export const setQueryLimit = useBoundStore.getState().setQueryLimit;
+
+export const setQueryOrderBy = useBoundStore.getState().setQueryOrderBy;
+
+export const setQueryLastVisible = useBoundStore.getState().setQueryLastVisible;

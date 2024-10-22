@@ -1,6 +1,7 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Select, MenuItem, FormControl } from "@mui/material";
 import css from "./SelectFilter.module.css";
+import { setQueryInfo, setQueryOrderBy } from "../../zustand/selectors";
 const theme = createTheme({
   components: {
     MuiSelect: {
@@ -68,7 +69,7 @@ const theme = createTheme({
           marginTop: "64px",
           marginBottom: "32px",
           display: "inline-flex",
-          
+
           alignItems: "start",
           gap: "8px",
         },
@@ -77,7 +78,11 @@ const theme = createTheme({
   },
 });
 
-export default function App() {
+export default function SelectFilter() {
+  const onFilerChange = (evt) => {
+    setQueryOrderBy(evt.target.value);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <FormControl>
@@ -89,7 +94,7 @@ export default function App() {
           autoWidth
           id="psychologies"
           name="psychologies"
-          onChange={(evt) => console.log('evtttt',evt.target.value)}
+          onChange={onFilerChange}
         >
           <MenuItem value={"asc"}>A to Z</MenuItem>
           <MenuItem value={"desc"}>Z to A</MenuItem>

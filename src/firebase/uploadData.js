@@ -1,8 +1,9 @@
 import { setPsyhologiesList } from "../zustand/selectors";
 import { unstable_batchedUpdates } from "react-dom";
 
-import { addDoc, collection, getCountFromServer, getDocs, limit, orderBy, query } from "firebase/firestore";
+import { addDoc, collection, getCountFromServer, getDocs, limit, orderBy, query, startAfter } from "firebase/firestore";
 import { firestore } from "./firebase.js";
+import { exportData, setLastVisible } from "../js/utilities.js";
 
 
 // const uploadDataToFirestore = async () => {
@@ -20,12 +21,12 @@ import { firestore } from "./firebase.js";
 
 // uploadDataToFirestore();
 
-export const fetchPsychologists = async () => {
+export const fetchPsychologists = async (limitQuery, order) => {
   try {
     const psychologistsCollection = query(
       collection(firestore, "psychologists"),
-      // limit(3),
-       orderBy("name", "asc")
+       limit(limitQuery),
+       orderBy("name", order)
     );
 
 
@@ -37,7 +38,8 @@ export const fetchPsychologists = async () => {
     }));
     const lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
 
-    console.log("lastVisible", lastVisible);
+    setLastVisible(lastVisible);
+ 
     const count = await getCountFromServer(psychologistsCollection);
 
     console.log('COUNT',count.data().count);
@@ -48,8 +50,15 @@ export const fetchPsychologists = async () => {
   }
 };
 
-function exportData(data) {
-  unstable_batchedUpdates(() => {
-    setPsyhologiesList(data);
-  });
+const loadFilteredData = async (data) => { 
+   const nextQuery = query(
+     collection(firestore, "psychologists"), startAfter(lastVisible),
+  );
+
+      const querySnapshot = await getDocs(nextQuery);
+   const lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
+ 
 }
+
+
+
