@@ -36,3 +36,8 @@ export const setQueryLimit = useBoundStore.getState().setQueryLimit;
 export const setQueryOrderBy = useBoundStore.getState().setQueryOrderBy;
 
 export const setQueryLastVisible = useBoundStore.getState().setQueryLastVisible;
+
+export const setQueryAmountOfPsychologists =
+  useBoundStore.getState().setQueryAmountOfPsychologists;
+
+  

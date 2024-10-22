@@ -15,7 +15,7 @@ const PsychologistsPage = () => {
 
   useEffect(() => {
     fetchPsychologists(queryInfo.limit, queryInfo.order);
-  }, [queryInfo]);
+  }, [fetchPsychologists]);
 
   return (
     <div className={css.psychologistsPageContainer}>

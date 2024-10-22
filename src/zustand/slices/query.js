@@ -1,5 +1,3 @@
-import { amountOfPsychologists } from "../../js/utilities";
-
 export const querySlice = (set) => ({
   query: {
     limit: 3,
@@ -19,5 +17,9 @@ export const querySlice = (set) => ({
   setQueryLastVisible: (value) =>
     set((state) => ({
       query: (state.query = { ...state.query, lastVisible: value }),
+    })),
+  setQueryAmountOfPsychologists: (value) =>
+    set((state) => ({
+      query: (state.query = { ...state.query, amountOfPsychologists: value }),
     })),
 });
