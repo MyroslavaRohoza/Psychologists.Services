@@ -1,10 +1,10 @@
 import { useBoundStore } from "./store";
 
-export const getOpen = (state) => state.open;
+export const getOpen = (state) => state.modal.open;
 
-export const getModalName = (state) => state.modalName;
+export const getModalName = (state) => state.modal.modalName;
 
-export const getPsyhologiesList = (state) => state.psyhologiesList;
+export const getPsyhologists = (state) => state.psychologists;
 
 export const getUserInfo = (state) => state.user;
 
@@ -15,7 +15,9 @@ export const getSelectedPsyhologies = (state) => state.selectedPsyhologies;
 
 export const getQueryInfo = (state) => state.query;
 
-export const setPsyhologiesList = useBoundStore.getState().setPsyhologiesList;
+export const getFilter = (state) => state.query.filter;
+
+export const setPsyhologistsList = useBoundStore.getState().setPsychologistsList;
 
 export const setModalName = useBoundStore.getState().setModalName;
 
@@ -24,10 +26,10 @@ export const setOpen = useBoundStore.getState().setOpen;
 export const setUserInfo = useBoundStore.getState().setUserInfo;
 
 export const setSelectedPsyhologies =
-  useBoundStore.getState().setSelectedPsyhologies;
+  useBoundStore.getState().setSelectedPsyhologists;
 
 export const setAppointmentPsychologists =
-  useBoundStore.getState().SetAppointmentPsychologists;
+  useBoundStore.getState().setAppointmentPsychologists;
 
 export const setQueryInfo = useBoundStore.getState().setQueryInfo;
 

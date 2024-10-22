@@ -1,3 +1,5 @@
+import { produce } from "immer";
+
 export const initialState = {
   isSignedIn: false,
   displayName: "",
@@ -11,9 +13,9 @@ export const initialState = {
 export const userSlice = (set) => ({
   user: initialState,
   setUserInfo: (userInfo) =>
-    
-    set((state) => ({
-      user: (state.user = {...userInfo
-    } ),
-    })),
+    set(
+      produce((state) => {
+        state.user = userInfo;
+      })
+    ),
 });

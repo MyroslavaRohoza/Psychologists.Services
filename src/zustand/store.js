@@ -1,18 +1,20 @@
 import { create } from "zustand";
-import { modalsSlice } from "./slices/modalsSlice";
-import { psychologiesSlice } from "./slices/psychologiesSlice";
-import { userSlice } from "./slices/userSlice";
 import { persist } from "zustand/middleware";
-import { querySlice } from "./slices/query";
+import { immer } from "zustand/middleware/immer";
+import { modalsSlice } from "./slices/modalsSlice";
+import { userSlice } from "./slices/userSlice";
+import { querySlice } from "./slices/querySlice";
+import { psychologistsSlice } from "./slices/psychologistsSlice";
 
 export const useBoundStore = create(
-  persist((...a) => ({
-    ...modalsSlice(...a),
-    ...psychologiesSlice(...a),
-    ...userSlice(...a),
-    ...psychologiesSlice(...a),
-    ...querySlice(...a),
-  })),
+  persist(
+    immer((...a) => ({
+      ...modalsSlice(...a),
+      ...psychologistsSlice(...a),
+      ...userSlice(...a),
+      ...querySlice(...a),
+    }))
+  ),
   {
     name: "user-storage",
     getStorage: () => localStorage,

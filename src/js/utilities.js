@@ -1,6 +1,6 @@
 import { unstable_batchedUpdates } from "react-dom";
 import {
-  setPsyhologiesList,
+  setPsyhologistsList,
   setQueryAmountOfPsychologists,
   setQueryLastVisible,
   setUserInfo,
@@ -8,7 +8,7 @@ import {
 
 export const exportData = (data) => {
   unstable_batchedUpdates(() => {
-    setPsyhologiesList(data);
+    setPsyhologistsList(data);
   });
 };
 
@@ -26,7 +26,6 @@ export const setLastVisible = (data) => {
     setQueryLastVisible(data);
   });
 };
-
 
 export const setPsychologistsAmount = (data) => {
   unstable_batchedUpdates(() => {

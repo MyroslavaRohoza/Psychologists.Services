@@ -1,21 +1,20 @@
 import css from "./Psychologists.module.css";
 import { useEffect } from "react";
 import PsychologiesList from "../../components/PsychologiesList/PsychologiesList";
-import { getQueryInfo } from "../../zustand/selectors";
+import { getFilter, getQueryInfo } from "../../zustand/selectors";
 import { useBoundStore } from "../../zustand/store";
 import SelectFilter from "../../components/SelectFilter/SelectFilter";
 import { fetchPsychologists } from "../../firebase/uploadData";
 import GreenBtn from "../../components/GreenBtn/GreenBtn";
 
 const PsychologistsPage = () => {
-
-  const queryInfo = useBoundStore(getQueryInfo);
-  console.log(queryInfo);
-
+  const queryFilter = useBoundStore(getFilter).orderBy;
+  const queryLimit = useBoundStore(getQueryInfo).limit;
+  console.log(queryLimit, queryFilter);
 
   useEffect(() => {
-    fetchPsychologists(queryInfo.limit, queryInfo.order);
-  }, [fetchPsychologists]);
+    fetchPsychologists(queryLimit, queryFilter);
+  }, [fetchPsychologists, queryLimit, queryFilter]);
 
   return (
     <div className={css.psychologistsPageContainer}>

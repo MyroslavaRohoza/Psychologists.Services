@@ -1,8 +1,19 @@
+import { produce } from "immer";
 export const modalsSlice = (set) => ({
-  open: false,
-  modalName: "",
-
-  setOpen: (value) => set((state) => ({ open: (state.open = value) })),
+  modal: {
+    open: false,
+    modalName: "",
+  },
+  setOpen: (value) =>
+    set(
+      produce((state) => {
+        state.modal.open = value;
+      })
+    ),
   setModalName: (name) =>
-    set((state) => ({ modalName: (state.modalName = name) })),
+    set(
+      produce((state) => {
+        state.modal.modalName = name;
+      })
+    ),
 });

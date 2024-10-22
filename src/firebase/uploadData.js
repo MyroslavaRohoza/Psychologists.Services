@@ -1,5 +1,3 @@
-import { setPsyhologiesList } from "../zustand/selectors";
-import { unstable_batchedUpdates } from "react-dom";
 
 import {
   addDoc,
@@ -33,13 +31,14 @@ export const fetchPsychologists = async (limitQuery, order) => {
   try {
     const psychologistsCollection = query(
       collection(firestore, "psychologists"),
-      limit(limitQuery),
-      orderBy("name", order)
+      limit(3),
+      orderBy("name",'asc')
     );
 
     // const psychologistsCollection = collection(firestore, "psychologists");
 
     const querySnapshot = await getDocs(psychologistsCollection);
+    console.log('qq',querySnapshot);
     const psychologistsData = querySnapshot.docs.map((doc) => ({
       ...doc.data(),
     }));
@@ -54,6 +53,7 @@ export const fetchPsychologists = async (limitQuery, order) => {
     
     setPsychologistsAmount(amount);
 
+    console.log('data',psychologistsData);
     exportData(psychologistsData);
   } catch (error) {
     throw new Error(error);
@@ -62,8 +62,7 @@ export const fetchPsychologists = async (limitQuery, order) => {
 export const amountOfPsychologists = async (collectionName) => {
   try {
     const dataCollectionQuery = query(collection(firestore, collectionName));
-    const countSnapshot = await getCountFromServer(dataCollectionQuery); // Отримуємо кількість документів з сервера
-
+    const countSnapshot = await getCountFromServer(dataCollectionQuery);
     const amount = countSnapshot.data().count;
 
     return amount;
@@ -72,12 +71,12 @@ export const amountOfPsychologists = async (collectionName) => {
   }
 };
 
-// const loadFilteredData = async (data) => {
-//   const nextQuery = query(
-//     collection(firestore, "psychologists"),
-//     startAfter(lastVisible)
-//   );
+const loadFilteredData = async (lastVisible) => {
+  const nextQuery = query(
+    collection(firestore, "psychologists"),
+    startAfter(lastVisible)
+  );
 
-//   const querySnapshot = await getDocs(nextQuery);
-//   const lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
-// };
+  const querySnapshot = await getDocs(nextQuery);
+  const last = querySnapshot.docs[querySnapshot.docs.length - 1];
+};

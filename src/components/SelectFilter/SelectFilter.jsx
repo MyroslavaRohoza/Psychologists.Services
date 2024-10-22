@@ -1,7 +1,7 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Select, MenuItem, FormControl } from "@mui/material";
 import css from "./SelectFilter.module.css";
-import { setQueryInfo, setQueryOrderBy } from "../../zustand/selectors";
+import {  setQueryOrderBy } from "../../zustand/selectors";
 const theme = createTheme({
   components: {
     MuiSelect: {
