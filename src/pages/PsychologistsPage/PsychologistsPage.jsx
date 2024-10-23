@@ -8,7 +8,7 @@ import { fetchPsychologists } from "../../firebase/uploadData";
 import GreenBtn from "../../components/GreenBtn/GreenBtn";
 
 const PsychologistsPage = () => {
-  const queryFilter = useBoundStore(getFilter).orderBy;
+  const queryFilter = useBoundStore(getFilter);
   const queryLimit = useBoundStore(getQueryInfo).limit;
   console.log(queryLimit, queryFilter);
 

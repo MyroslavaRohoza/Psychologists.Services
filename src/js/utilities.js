@@ -32,3 +32,5 @@ export const setPsychologistsAmount = (data) => {
     setQueryAmountOfPsychologists(data);
   });
 };
+
+

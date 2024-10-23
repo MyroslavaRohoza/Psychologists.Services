@@ -4,8 +4,8 @@ export const querySlice = (set) => ({
   query: {
     limit: 3,
     filter: {
-      orderBy: "",
-      where: "",
+      orderBy: null,
+      where: null,
     },
     lastVisible: null,
     amountOfPsychologists: null,

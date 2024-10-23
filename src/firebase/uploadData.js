@@ -8,6 +8,7 @@ import {
   orderBy,
   query,
   startAfter,
+  where,
 } from "firebase/firestore";
 import { firestore } from "./firebase.js";
 import { exportData, setLastVisible, setPsychologistsAmount } from "../js/utilities.js";
@@ -32,7 +33,9 @@ export const fetchPsychologists = async (limitQuery, order) => {
     const psychologistsCollection = query(
       collection(firestore, "psychologists"),
       limit(limitQuery),
-      orderBy(...order)
+      order.orderBy ? orderBy(...order.orderBy) : where(...order.where),
+      
+      // where("online", "==", true)
     );
 
     // const psychologistsCollection = collection(firestore, "psychologists");
@@ -71,12 +74,12 @@ export const amountOfPsychologists = async (collectionName) => {
   }
 };
 
-const loadFilteredData = async (lastVisible) => {
-  const nextQuery = query(
-    collection(firestore, "psychologists"),
-    startAfter(lastVisible)
-  );
+// const loadFilteredData = async (lastVisible) => {
+//   const nextQuery = query(
+//     collection(firestore, "psychologists"),
+//     startAfter(lastVisible)
+//   );
 
-  const querySnapshot = await getDocs(nextQuery);
-  const last = querySnapshot.docs[querySnapshot.docs.length - 1];
-};
+//   const querySnapshot = await getDocs(nextQuery);
+//   const last = querySnapshot.docs[querySnapshot.docs.length - 1];
+// };

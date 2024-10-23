@@ -1,7 +1,13 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Select, MenuItem, FormControl } from "@mui/material";
 import css from "./SelectFilter.module.css";
-import { setQueryOrderBy, setQueryWhere } from "../../zustand/selectors";
+import {
+  getQueryInfo,
+  setQueryLimit,
+  setQueryOrderBy,
+  setQueryWhere,
+} from "../../zustand/selectors";
+import { useBoundStore } from "../../zustand/store";
 const theme = createTheme({
   components: {
     MuiSelect: {
@@ -79,6 +85,8 @@ const theme = createTheme({
 });
 
 export default function SelectFilter() {
+  const amountOfPsychologists =
+    useBoundStore(getQueryInfo).amountOfPsychologists;
   const onFilerChange = (evt) => {
     const { value } = evt.target;
     if (value === "asc" || value === "desc") {
@@ -88,9 +96,15 @@ export default function SelectFilter() {
     } else if (value === "notPopular") {
       setQueryOrderBy(["rating", "desc"]);
     } else if (value === "lessThan150") {
-      setQueryWhere([("price_per_hour", "<", 150)]);
+       setQueryOrderBy(null);
+      setQueryWhere(["price_per_hour", "<", 150]);
     } else if (value === "greaterThan150") {
-      setQueryWhere([("price_per_hour", ">=", 150)]);
+       setQueryOrderBy(null);
+      setQueryWhere(["price_per_hour", ">=", 150]);
+    } else if (value === "all") {
+      setQueryWhere(null);
+      setQueryOrderBy(["name", "asc"]);
+      setQueryLimit(amountOfPsychologists);
     }
   };
 
