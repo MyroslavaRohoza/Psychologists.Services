@@ -34,26 +34,19 @@ import { addPortionsData } from "../zustand/selectors.js";
 
 export const fetchPsychologists = async (limitQuery, order) => {
   try {
-    const psychologistsCollection = query(
-      collection(firestore, "psychologists"),
-      limit(limitQuery),
-      order.orderBy ? orderBy(...order.orderBy) : where(...order.where)
+    const psychologistsCollection = createQuery(
+      limitQuery,
+      order,
+      "psychologists"
     );
-
-    // const psychologistsCollection = collection(firestore, "psychologists");
 
     const querySnapshot = await getDocs(psychologistsCollection);
 
-    const psychologistsData = querySnapshot.docs.map((doc) => ({
-      ...doc.data(),
-    }));
-    const lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
+    const psychologistsData = unpackData(querySnapshot);
+    const lastVisible = findLastDoc(querySnapshot);
 
     setLastVisible(lastVisible);
 
-    // const amountPerPage = await getCountFromServer(psychologistsCollection);
-
-    // // console.log("COUNT", amountPerPage.data().count);
     const amount = await amountOfPsychologists("psychologists");
 
     setPsychologistsAmount(amount);
@@ -77,21 +70,47 @@ export const amountOfPsychologists = async (collectionName) => {
 };
 
 export const loadFilteredData = async (lastVisible, order, limitQuery) => {
-  const nextQuery = query(
-    collection(firestore, "psychologists"),
-    order.orderBy ? orderBy(...order.orderBy) : where(...order.where),
-    startAfter(lastVisible),
-    limit(limitQuery)
+  const nextQuery = createQuery(
+    limitQuery,
+    order,
+    "psychologists",
+    lastVisible
   );
 
   const querySnapshot = await getDocs(nextQuery);
 
-  const psychologistsPortionData = querySnapshot.docs.map((doc) => ({
-    ...doc.data(),
-  }));
+  const psychologistsPortionData = unpackData(querySnapshot);
 
   addPortionsData(psychologistsPortionData);
 
-  const last = querySnapshot.docs[querySnapshot.docs.length - 1];
-  setLastVisible(last);
+  const lastVisibleDoc = findLastDoc(querySnapshot);
+  setLastVisible(lastVisibleDoc);
+};
+
+const createQuery = (limitQuery, order, collectionName, lastVisible) => {
+  const constraints = [
+    collection(firestore, collectionName),
+    limit(limitQuery),
+  ];
+
+  if (Array.isArray(order.orderBy)) {
+    constraints.push(orderBy(...order.orderBy));
+  } else if (Array.isArray(order.where)) {
+    constraints.push(where(...order.where));
+  }
+  if (lastVisible) {
+    constraints.push(startAfter(lastVisible));
+  }
+
+  return query(...constraints);
+};
+
+const unpackData = (data) => {
+  return data.docs.map((doc) => ({
+    ...doc.data(),
+  }));
+};
+
+const findLastDoc= (data) => {
+  return data.docs[data.docs.length - 1];
 };

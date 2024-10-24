@@ -40,8 +40,6 @@ const PsychologistsPage = () => {
           Load more
         </GreenBtn>
 
-        <GreenBtn padding={"14px 48px"}>Load more</GreenBtn>
-
       </div>
     </div>
   );
