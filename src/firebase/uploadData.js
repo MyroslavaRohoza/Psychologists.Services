@@ -1,8 +1,5 @@
-
-
-
 import {
-
+  addDoc,
   collection,
   getCountFromServer,
   getDocs,
@@ -13,16 +10,12 @@ import {
   where,
 } from "firebase/firestore";
 import { firestore } from "./firebase.js";
-
 import {
   exportData,
   setLastVisible,
   setPsychologistsAmount,
 } from "../js/utilities.js";
 import { addPortionsData } from "../zustand/selectors.js";
-
-
-
 
 // const uploadDataToFirestore = async () => {
 //   try {
@@ -44,11 +37,7 @@ export const fetchPsychologists = async (limitQuery, order) => {
     const psychologistsCollection = query(
       collection(firestore, "psychologists"),
       limit(limitQuery),
-
       order.orderBy ? orderBy(...order.orderBy) : where(...order.where)
-
-      // where("online", "==", true)
-
     );
 
     // const psychologistsCollection = collection(firestore, "psychologists");
@@ -67,16 +56,9 @@ export const fetchPsychologists = async (limitQuery, order) => {
     // // console.log("COUNT", amountPerPage.data().count);
     const amount = await amountOfPsychologists("psychologists");
 
-
     setPsychologistsAmount(amount);
 
     console.log("data", psychologistsData);
-
-    
-    setPsychologistsAmount(amount);
-
-    console.log('data',psychologistsData);
-
     exportData(psychologistsData);
   } catch (error) {
     throw new Error(error);
@@ -99,7 +81,7 @@ export const loadFilteredData = async (lastVisible, order, limitQuery) => {
     collection(firestore, "psychologists"),
     order.orderBy ? orderBy(...order.orderBy) : where(...order.where),
     startAfter(lastVisible),
-      limit(limitQuery),
+    limit(limitQuery)
   );
 
   const querySnapshot = await getDocs(nextQuery);
