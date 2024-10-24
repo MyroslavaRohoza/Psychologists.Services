@@ -1,0 +1,16 @@
+.avatar{
+    width: 44px;
+    height: 44px;
+    border-radius: 15px;
+}
+
+.psychologisText{
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.container{
+    display: flex;
+    gap: 14px;
+}

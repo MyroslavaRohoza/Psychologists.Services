@@ -1,0 +1,9 @@
+.title {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--dark-olive);
+  letter-spacing: -0.02em;
+  text-align: left;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,35 @@
+.input {
+  width: 100%;
+  border: 1px solid var(--transparent-dark-olive);
+  border-radius: 12px;
+  background-color: inherit;
+  outline: none;
+  padding: 16px 0px 16px 18px;
+}
+
+.input::placeholder,
+.input {
+  color: var(--dark-olive);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.eyeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: inherit;
+}
+
+.inputPasswordContainer {
+  position: relative;
+}
+
+.textarea {
+  resize: none;
+  font-family: inherit;
+}

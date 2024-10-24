@@ -1,0 +1,25 @@
+.headerMenu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.link {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--dark-olive);
+  position: relative;
+}
+
+.active::after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--green-mint);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}

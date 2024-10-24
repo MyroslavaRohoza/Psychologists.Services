@@ -1,0 +1,7 @@
+.closeBtn {
+  border: none;
+  background-color: inherit;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

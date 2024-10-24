@@ -1,0 +1,9 @@
+.greenBtn {
+  background-color: var(--green-mint);
+  border-radius: 30px;
+  border: none;
+}
+
+.textColor {
+  color: var(--light-gray);
+}

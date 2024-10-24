@@ -1,0 +1,14 @@
+.psychologistsPageContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: start;
+
+}
+
+.psychologiesListContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 64px;
+}

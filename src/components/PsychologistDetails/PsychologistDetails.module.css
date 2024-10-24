@@ -1,0 +1,5 @@
+.psychologistDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 4px;
+}

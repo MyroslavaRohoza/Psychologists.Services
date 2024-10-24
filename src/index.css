@@ -1,0 +1,93 @@
+:root {
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+  min-width: 320px;
+  background-color: var(--body-color);
+  --dark-olive: #191a15;
+  --transparent-dark-olive: rgba(25, 26, 21, 0.1);
+  --green-mint: #54be96;
+  --transparent-mint-green: rgba(84, 190, 150, 0.2);
+  --lime-green:#38cd3e; 
+  --light-gray: #fbfbfb;
+  --golden-yellow: #ffc531;
+  --body-color: #F3F3F3;
+  --grey-text: #8A8A89;
+}
+
+*, 
+*::before, 
+*::after {
+  box-sizing: border-box;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+ul,
+li,
+label,
+input {
+  margin: 0;
+}
+
+img {
+  display: block;
+}
+
+.text-grey {
+  color: var(--grey-text);
+}
+
+.text-dark-olive {
+  color: var(--dark-olive);
+  font-weight: 500;
+}
+
+a,
+a:active,
+a:hover,
+a:focus {
+  color: inherit;
+}
+
+body {
+  letter-spacing: -0.02em;
+}
+
+.container {
+  padding-right: 128px;
+  padding-left: 128px;
+}
+
+.btnText {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+a {
+  text-decoration: none;
+   display: block;
+}
+
+svg {
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img{
+  display: block;
+}

@@ -1,0 +1,41 @@
+.circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(84, 190, 150, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circleText {
+  color: var(--green-mint);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.reviewInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviewInfoText {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.reviewItem{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 25px;
+}
+

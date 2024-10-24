@@ -1,0 +1,12 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.registrationFormContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}

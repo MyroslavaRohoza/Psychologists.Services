@@ -1,0 +1,12 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.logInFormContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}

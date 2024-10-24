@@ -1,0 +1,7 @@
+.readMore{
+     margin-top: 48px;
+     display: grid;
+     grid-template-columns: 1fr;
+     justify-items: start;
+     grid-gap: 40px;   
+}

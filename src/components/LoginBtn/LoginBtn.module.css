@@ -1,0 +1,10 @@
+.btn {
+  border: 1px solid rgba(25, 26, 21, 0.2);
+  border-radius: 30px;
+  padding: 14px 39px;
+  background-color: transparent;
+}
+
+.textColor {
+  color: rgba(25, 26, 21, 1);
+}
