@@ -4,6 +4,7 @@ export const psychologistsSlice = (set) => ({
   psychologists: {
     psychologistsList: null,
     selectedPsychologists: [],
+    selectedPsychologistTemp: new Set(),  
     appointmentPsychologists: null,
   },
 
@@ -14,24 +15,36 @@ export const psychologistsSlice = (set) => ({
       })
     ),
 
-  
   addPortionsData: (value) =>
     set(
       produce((state) => {
-        state.psychologists.psychologistsList= [...state.psychologists.psychologistsList, ...value];
+        state.psychologists.psychologistsList = [
+          ...state.psychologists.psychologistsList,
+          ...value,
+        ];
       })
     ),
-
 
   setSelectedPsychologists: (psychologistId) =>
     set(
-      produce((state) => {
-        const selectedPsychologists = state.psychologists.psychologistsList.find(
+      (state) => {
+        const selectedPsychologist = state.psychologists.psychologistsList.find(
           (psychologist) => psychologist.id === psychologistId
-        )
-        state.psychologists.selectedPsychologists.push(selectedPsychologists);
-      })
+        );
+
+    
+        state.psychologists.selectedPsychologistTemp.add(selectedPsychologist);
+
+      
+        return {
+          psychologists: {
+            ...state.psychologists,
+            selectedPsychologists: Array.from(state.psychologists.selectedPsychologistTemp),  // Преобразуем Set в массив
+          },
+        };
+      }
     ),
+
   setAppointmentPsychologists: (appointmentPsychologists) =>
     set(
       produce((state) => {
