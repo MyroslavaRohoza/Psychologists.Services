@@ -107,6 +107,7 @@ const createQuery = (limitQuery, order, collectionName, lastVisible) => {
 
 const unpackData = (data) => {
   return data.docs.map((doc) => ({
+    id: doc.id,
     ...doc.data(),
   }));
 };

@@ -1,5 +1,4 @@
 import css from './PsychologiesList.module.css';
-import { nanoid } from 'nanoid';
 import PsychologiesListItem from '../PsychologiesListItem/PsychologiesListItem';
 import { useBoundStore } from '../../zustand/store';
 import { getPsyhologists } from '../../zustand/selectors';
@@ -12,7 +11,9 @@ const PsychologiesList = () => {
   return (
     <ul className={css.psychologiesList}>
       {Array.isArray(psychologiesArray) &&
-        psychologiesArray.map((item) => <PsychologiesListItem key={nanoid()} {...item} />)}
+        psychologiesArray.map((item) => (
+          <PsychologiesListItem key={item.id} {...item} />
+        ))}
     </ul>
   );
 }

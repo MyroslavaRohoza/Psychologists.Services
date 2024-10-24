@@ -3,7 +3,7 @@ import { produce } from "immer";
 export const psychologistsSlice = (set) => ({
   psychologists: {
     psychologistsList: null,
-    selectedPsychologists: null,
+    selectedPsychologists: [],
     appointmentPsychologists: null,
   },
 
@@ -23,10 +23,13 @@ export const psychologistsSlice = (set) => ({
     ),
 
 
-  setSelectedPsychologists: (selectedPsychologists) =>
+  setSelectedPsychologists: (psychologistId) =>
     set(
       produce((state) => {
-        state.psychologists.selectedPsychologists = selectedPsychologists; 
+        const selectedPsychologists = state.psychologists.psychologistsList.find(
+          (psychologist) => psychologist.id === psychologistId
+        )
+        state.psychologists.selectedPsychologists.push(selectedPsychologists);
       })
     ),
   setAppointmentPsychologists: (appointmentPsychologists) =>

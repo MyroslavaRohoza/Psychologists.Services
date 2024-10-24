@@ -7,10 +7,16 @@ import { NavLink, Route, Routes } from "react-router-dom";
 import PsychologistDetails from "../PsychologistDetails/PsychologistDetails";
 import clsx from "clsx";
 import { useBoundStore } from "../../zustand/store";
-import { getUserInfo, setModalName, setOpen } from "../../zustand/selectors";
+import {
+  getUserInfo,
+  setModalName,
+  setOpen,
+  setSelectedPsychologists,
+} from "../../zustand/selectors";
 import { useState } from "react";
 
 const PsychologiesListItem = ({
+  id,
   avatar_url,
   name,
   rating,
@@ -25,20 +31,20 @@ const PsychologiesListItem = ({
   const [heartStyles, setHeartStyles] = useState({
     color: "var(--dark-olive)",
     fill: "var(--light-gray)",
- });
+  });
 
   const isAuth = useBoundStore(getUserInfo).isSignedIn;
   const buildLinkClass = ({ isActive }) => {
     return clsx(css.readMoreLink, isActive && css.activeNavLink);
   };
 
-
   const onHeartBtnClick = () => {
     if (isAuth) {
       setHeartStyles({
         color: "var(--green-mint)",
         fill: "var(--green-mint)",
-      })
+      });
+      setSelectedPsychologists(id);
     } else {
       setOpen(true);
       setModalName("AuthMessage");
