@@ -100,18 +100,20 @@ export default function SelectFilter() {
       setQueryWhere(["price_per_hour", "<", 150]);
     } else if (value === "greaterThan150") {
       setQueryOrderBy(null);
-      setQueryWhere(["price_per_hour", ">=", 150]);
+
+       setQueryOrderBy(null);
+      setQueryWhere(["price_per_hour", "<", 150]);
+
     } else if (value === "all") {
       setQueryWhere(null);
       setQueryOrderBy(["name", "asc"]);
       setQueryLimit(amountOfPsychologists);
     }
+
     if (value !== "all") {
       setQueryLimit(3);
     }
   };
-
-
 
   return (
     <ThemeProvider theme={theme}>

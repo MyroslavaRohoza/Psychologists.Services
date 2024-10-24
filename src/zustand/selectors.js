@@ -44,4 +44,5 @@ export const setQueryLastVisible = useBoundStore.getState().setQueryLastVisible;
 export const setQueryAmountOfPsychologists =
   useBoundStore.getState().setQueryAmountOfPsychologists;
 
+
   export const addPortionsData = useBoundStore.getState().addPortionsData;

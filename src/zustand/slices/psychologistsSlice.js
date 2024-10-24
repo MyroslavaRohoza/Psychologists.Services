@@ -13,6 +13,7 @@ export const psychologistsSlice = (set) => ({
         state.psychologists.psychologistsList = value;
       })
     ),
+
   
   addPortionsData: (value) =>
     set(
@@ -20,6 +21,7 @@ export const psychologistsSlice = (set) => ({
         state.psychologists.psychologistsList= [...state.psychologists.psychologistsList, ...value];
       })
     ),
+
 
   setSelectedPsychologists: (selectedPsychologists) =>
     set(
