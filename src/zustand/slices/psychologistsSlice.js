@@ -4,7 +4,7 @@ export const psychologistsSlice = (set) => ({
   psychologists: {
     psychologistsList: null,
     selectedPsychologists: [],
-    selectedPsychologistTemp: new Set(),  
+    selectedPsychologistTemp: new Map(),
     appointmentPsychologists: null,
   },
 
@@ -26,24 +26,28 @@ export const psychologistsSlice = (set) => ({
     ),
 
   setSelectedPsychologists: (psychologistId) =>
-    set(
-      (state) => {
-        const selectedPsychologist = state.psychologists.psychologistsList.find(
-          (psychologist) => psychologist.id === psychologistId
+    set((state) => {
+      const selectedPsychologist = state.psychologists.psychologistsList.find(
+        (psychologist) => psychologist.id === psychologistId
+      );
+
+      if (!(state.psychologists.selectedPsychologistTemp instanceof Map)) {
+        state.psychologists.selectedPsychologistTemp = new Map(
+          ...state.psychologists.selectedPsychologistTemp
         );
-
-    
-        state.psychologists.selectedPsychologistTemp.add(selectedPsychologist);
-
-      
-        return {
-          psychologists: {
-            ...state.psychologists,
-            selectedPsychologists: Array.from(state.psychologists.selectedPsychologistTemp),  // Преобразуем Set в массив
-          },
-        };
       }
-    ),
+      const arr = [];
+      state.psychologists.selectedPsychologistTemp.set(
+        psychologistId,
+        selectedPsychologist
+      );
+
+      for (const [key, value] of state.psychologists.selectedPsychologistTemp) {
+        arr.push(value);
+      }
+
+      state.psychologists.selectedPsychologists = [...arr];
+    }),
 
   setAppointmentPsychologists: (appointmentPsychologists) =>
     set(
