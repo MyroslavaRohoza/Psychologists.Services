@@ -13,11 +13,11 @@ export const useBoundStore = create(
       ...psychologistsSlice(...a),
       ...userSlice(...a),
       ...querySlice(...a),
-    }))
-  ),
-  {
-    name: "user-storage",
+    })),{
+     name: "user",
     getStorage: () => localStorage,
-    // partialize: (state) => ({ user: state.user })
+    partialize: (state) => ({ user: state.user }),
   }
+  ),
+  
 );
