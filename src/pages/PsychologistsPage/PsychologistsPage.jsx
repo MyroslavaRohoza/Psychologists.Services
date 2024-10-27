@@ -25,8 +25,6 @@ const PsychologistsPage = () => {
   const lastVisible = useBoundStore(getQueryInfo).lastVisible;
   const limit = useBoundStore(getQueryInfo).limit;
 
-
-
   return (
     <div className={css.psychologistsPageContainer}>
       <SelectFilter />

@@ -4,7 +4,6 @@ import { app } from "./firebase";
 const auth = getAuth(app);
 
 
-
 export const loginUser = async (email, password) => {
   try {
     const userCredential = await signInWithEmailAndPassword(
@@ -14,23 +13,17 @@ export const loginUser = async (email, password) => {
     );
 
     const user = userCredential.user;
-         const {
-          displayName,
-           accessToken,
-           refreshToken,
-           reloadUserInfo,
-           validSince,
-           uid,
-    } = user;
+    console.log("User logged in:", user);
+    //      const {
+    //       displayName,
+    //        accessToken,
+    //        refreshToken,
+    //        reloadUserInfo,
+    //        validSince,
+    //        uid,
+    // } = user;
     
-   loadUserInfo({
-     displayName,
-     accessToken,
-     refreshToken,
-     reloadUserInfo,
-     validSince,
-     uid,
-   });
+   loadUserInfo(user);
 
     console.log("User logged in:", userCredential.user);
     return userCredential.user;
