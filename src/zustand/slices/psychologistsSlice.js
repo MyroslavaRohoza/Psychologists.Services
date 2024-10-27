@@ -6,6 +6,7 @@ export const psychologistsSlice = (set) => ({
     selectedPsychologists: [],
     selectedPsychologistTemp: new Map(),
     appointmentPsychologists: null,
+    selectedPsychologistsIds: [],
   },
 
   setPsychologistsList: (value) =>
@@ -37,7 +38,7 @@ export const psychologistsSlice = (set) => ({
         );
       }
       const isSelectedPsychologist =
-        state.psychologists.selectedPsychologistTemp.has(psychologistId);   
+        state.psychologists.selectedPsychologistTemp.has(psychologistId);
       if (isSelectedPsychologist) {
         state.psychologists.selectedPsychologistTemp.delete(psychologistId);
       } else {
@@ -50,6 +51,10 @@ export const psychologistsSlice = (set) => ({
       const values = state.psychologists.selectedPsychologistTemp.values();
 
       state.psychologists.selectedPsychologists = [...values];
+
+      state.psychologists.selectedPsychologistsIds = [
+        ...state.psychologists.selectedPsychologistTemp.keys(),
+      ];
     }),
 
   setAppointmentPsychologists: (appointmentPsychologists) =>

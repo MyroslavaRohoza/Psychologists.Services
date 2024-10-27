@@ -9,6 +9,7 @@ import clsx from "clsx";
 import { useBoundStore } from "../../zustand/store";
 import {
   getUserInfo,
+  selectedPsychologistsIds,
   setModalName,
   setOpen,
   setSelectedPsychologists,
@@ -34,40 +35,31 @@ const PsychologiesListItem = ({
   });
 
   const isAuth = useBoundStore(getUserInfo).isSignedIn;
+
+  const selectedIdsArr = useBoundStore(selectedPsychologistsIds);
   const buildLinkClass = ({ isActive }) => {
     return clsx(css.readMoreLink, isActive && css.activeNavLink);
   };
 
-
   useEffect(() => {
-     
-  },);
+    checkIsSelected(selectedIdsArr);
+  }, [selectedIdsArr]);
 
-  const checkIsSelected = (select) => {
-   
-select
-  ? setHeartStyles({
-      color: "var(--green-mint)",
-      fill: "var(--green-mint)",
-    })
-  : setHeartStyles({
-      color: "var(--dark-olive)",
-      fill: "var(--light-gray)",
-    });
+  const checkIsSelected = (selectedIdsArr) => {
+    selectedIdsArr.includes(id)
+      ? setHeartStyles({
+          color: "var(--green-mint)",
+          fill: "var(--green-mint)",
+        })
+      : setHeartStyles({
+          color: "var(--dark-olive)",
+          fill: "var(--light-gray)",
+        });
   };
 
   const onHeartBtnClick = () => {
     if (isAuth) {
       setSelectedPsychologists(id);
-      // isSelectedPsychologist
-      //   ? setHeartStyles({
-      //       color: "var(--dark-olive)",
-      //       fill: "var(--light-gray)",
-      //     })
-      //   : setHeartStyles({
-      //       color: "var(--green-mint)",
-      //       fill: "var(--green-mint)",
-      //     });
     } else {
       setOpen(true);
       setModalName("AuthMessage");
