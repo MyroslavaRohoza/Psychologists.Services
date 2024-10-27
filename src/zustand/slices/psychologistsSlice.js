@@ -36,17 +36,20 @@ export const psychologistsSlice = (set) => ({
           ...state.psychologists.selectedPsychologistTemp
         );
       }
-      const arr = [];
-      state.psychologists.selectedPsychologistTemp.set(
-        psychologistId,
-        selectedPsychologist
-      );
-
-      for (const [key, value] of state.psychologists.selectedPsychologistTemp) {
-        arr.push(value);
+      const isSelectedPsychologist =
+        state.psychologists.selectedPsychologistTemp.has(psychologistId);   
+      if (isSelectedPsychologist) {
+        state.psychologists.selectedPsychologistTemp.delete(psychologistId);
+      } else {
+        state.psychologists.selectedPsychologistTemp.set(
+          psychologistId,
+          selectedPsychologist
+        );
       }
 
-      state.psychologists.selectedPsychologists = [...arr];
+      const values = state.psychologists.selectedPsychologistTemp.values();
+
+      state.psychologists.selectedPsychologists = [...values];
     }),
 
   setAppointmentPsychologists: (appointmentPsychologists) =>

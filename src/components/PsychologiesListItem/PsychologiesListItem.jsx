@@ -13,7 +13,7 @@ import {
   setOpen,
   setSelectedPsychologists,
 } from "../../zustand/selectors";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const PsychologiesListItem = ({
   id,
@@ -38,13 +38,36 @@ const PsychologiesListItem = ({
     return clsx(css.readMoreLink, isActive && css.activeNavLink);
   };
 
+
+  useEffect(() => {
+     
+  },);
+
+  const checkIsSelected = (select) => {
+   
+select
+  ? setHeartStyles({
+      color: "var(--green-mint)",
+      fill: "var(--green-mint)",
+    })
+  : setHeartStyles({
+      color: "var(--dark-olive)",
+      fill: "var(--light-gray)",
+    });
+  };
+
   const onHeartBtnClick = () => {
     if (isAuth) {
-      setHeartStyles({
-        color: "var(--green-mint)",
-        fill: "var(--green-mint)",
-      });
       setSelectedPsychologists(id);
+      // isSelectedPsychologist
+      //   ? setHeartStyles({
+      //       color: "var(--dark-olive)",
+      //       fill: "var(--light-gray)",
+      //     })
+      //   : setHeartStyles({
+      //       color: "var(--green-mint)",
+      //       fill: "var(--green-mint)",
+      //     });
     } else {
       setOpen(true);
       setModalName("AuthMessage");

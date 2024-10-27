@@ -9,13 +9,17 @@ export const getPsyhologists = (state) => state.psychologists;
 export const getUserInfo = (state) => state.user;
 
 export const getAppointmentPsychologists = (state) =>
-  state.appointmentPsychologists;
+  state.psychologists.appointmentPsychologists;
 
-export const getSelectedPsyhologies = (state) => state.selectedPsyhologies;
+export const getSelectedPsyhologists = (state) =>
+  state.psychologists.selectedPsychologists;
 
 export const getQueryInfo = (state) => state.query;
 
 export const getFilter = (state) => state.query.filter;
+
+export const getSelectedPsychologist = (state) =>
+  state.psychologists.isSelectedPsychologist;
 
 export const setPsyhologistsList = useBoundStore.getState().setPsychologistsList;
 
@@ -47,3 +51,4 @@ export const setQueryAmountOfPsychologists =
 export const addPortionsData = useBoundStore.getState().addPortionsData;
  
 export const setSelectedPsychologists = useBoundStore.getState().setSelectedPsychologists;
+

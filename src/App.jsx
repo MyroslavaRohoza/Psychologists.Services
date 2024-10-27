@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { enableMapSet } from "immer";
-
 import Layout from "./components/Layout/Layout";
 import HomePage from "./pages/HomePage/HomePage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
@@ -18,7 +17,7 @@ import AuthMessage from "./components/AuthMessage/AuthMessage";
 
 function App() {
   const modalName = useBoundStore(getModalName);
-enableMapSet();
+  enableMapSet();
   return (
     <Layout>
       <Routes>
