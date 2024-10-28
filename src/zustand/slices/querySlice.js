@@ -3,6 +3,7 @@ import { produce } from "immer";
 export const querySlice = (set) => ({
   query: {
     limit: 3,
+    page: null,
     filter: {
       orderBy: null,
       where: null,

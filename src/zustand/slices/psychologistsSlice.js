@@ -3,6 +3,7 @@ import { produce } from "immer";
 export const psychologistsSlice = (set) => ({
   psychologists: {
     psychologistsList: null,
+    psychologistsListLength: 0,
     selectedPsychologists: [],
     selectedPsychologistTemp: new Map(),
     appointmentPsychologists: null,
@@ -13,16 +14,15 @@ export const psychologistsSlice = (set) => ({
     set(
       produce((state) => {
         state.psychologists.psychologistsList = value;
+        state.psychologists.psychologistsListLength = value.length;
       })
     ),
 
   addPortionsData: (value) =>
     set(
       produce((state) => {
-        state.psychologists.psychologistsList = [
-          ...state.psychologists.psychologistsList,
-          ...value,
-        ];
+        state.psychologists.psychologistsList.push(...value);
+        state.psychologists.psychologistsListLength += value.length;
       })
     ),
 

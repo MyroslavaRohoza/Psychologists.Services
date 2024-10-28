@@ -14,15 +14,6 @@ export const loginUser = async (email, password) => {
 
     const user = userCredential.user;
     console.log("User logged in:", user);
-    //      const {
-    //       displayName,
-    //        accessToken,
-    //        refreshToken,
-    //        reloadUserInfo,
-    //        validSince,
-    //        uid,
-    // } = user;
-    
    loadUserInfo(user);
 
     console.log("User logged in:", userCredential.user);

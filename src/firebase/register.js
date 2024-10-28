@@ -15,28 +15,11 @@ export const registerUser = async (name, email, password) => {
       name
     );
     const user = userCredential.user;
-
-    console.log("User registered:", user);
     await updateProfile(user, {
       displayName: name,
     })
-      .then(() => {
-        const {
-          displayName,
-          accessToken,
-          refreshToken,
-          reloadUserInfo,
-          validSince,
-          uid,
-        } = user;
-        loadUserInfo({
-          displayName,
-          accessToken,
-          refreshToken,
-          reloadUserInfo,
-          validSince,
-          uid,
-        });
+      .then(() => {     
+        loadUserInfo(user);
         console.log("Profile updated successfully with name:", name);
       })
       .catch((error) => {

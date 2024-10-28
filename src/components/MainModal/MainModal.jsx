@@ -20,17 +20,15 @@ const MainModal = ({ children }) => {
     <Modal
       open={open}
       onClose={handleClose}
-      //   aria-labelledby="parent-modal-title"
-      //   aria-describedby="parent-modal-description"
       closeAfterTransition
       sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
     >
       <Fade
         in={open}
-        onEnter={() => console.log("Opening modal...")}
-        onExited={() => {
-          console.log("Modal closed.");
-        }}
+        // onEnter={() => console.log("Opening modal...")}
+        // onExited={() => {
+        //   console.log("Modal closed.");
+        // }}
         timeout={{ enter: 300, exit: 300 }}
       >
         <Box

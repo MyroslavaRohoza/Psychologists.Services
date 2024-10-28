@@ -47,19 +47,22 @@ export const fetchPsychologists = async (limitQuery, order) => {
 
     setLastVisible(lastVisible);
 
-    const amount = await amountOfPsychologists("psychologists");
+    const amount = await amountOfPsychologists("psychologists", order);
 
     setPsychologistsAmount(amount);
 
-    console.log("data", psychologistsData);
     exportData(psychologistsData);
   } catch (error) {
     throw new Error(error);
   }
 };
-export const amountOfPsychologists = async (collectionName) => {
+export const amountOfPsychologists = async (
+  collectionName,
+  order,
+  limitQuery
+) => {
   try {
-    const dataCollectionQuery = query(collection(firestore, collectionName));
+    const dataCollectionQuery = createQuery(limitQuery, order, collectionName);
     const countSnapshot = await getCountFromServer(dataCollectionQuery);
     const amount = countSnapshot.data().count;
 
@@ -85,14 +88,19 @@ export const loadFilteredData = async (lastVisible, order, limitQuery) => {
 
   const lastVisibleDoc = findLastDoc(querySnapshot);
   setLastVisible(lastVisibleDoc);
+
+  const amount = await amountOfPsychologists("psychologists");
+
+  console.log("loaded filtered", amount);
+
+  setPsychologistsAmount(amount);
 };
 
 const createQuery = (limitQuery, order, collectionName, lastVisible) => {
-  const constraints = [
-    collection(firestore, collectionName),
-    limit(limitQuery),
-  ];
-
+  const constraints = [collection(firestore, collectionName)];
+  if (limitQuery) {
+    constraints.push(limit(limitQuery));
+  }
   if (Array.isArray(order.orderBy)) {
     constraints.push(orderBy(...order.orderBy));
   } else if (Array.isArray(order.where)) {
@@ -112,6 +120,6 @@ const unpackData = (data) => {
   }));
 };
 
-const findLastDoc= (data) => {
+const findLastDoc = (data) => {
   return data.docs[data.docs.length - 1];
 };
