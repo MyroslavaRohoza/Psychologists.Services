@@ -27,6 +27,9 @@ function App() {
         <Route path="/psychologists/*" element={<PsychologistsPage />}>
           <Route path="reviews" element={<Reviews />} />
         </Route>
+        <Route path="/favorites/*" element={<FavoritesPage />}>
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
       </Routes>
       <MainModal>
         {(modalName === "LogIn" && <LogInForm />) ||
