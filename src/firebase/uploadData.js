@@ -91,8 +91,6 @@ export const loadFilteredData = async (lastVisible, order, limitQuery) => {
 
   const amount = await amountOfPsychologists("psychologists");
 
-  console.log("loaded filtered", amount);
-
   setPsychologistsAmount(amount);
 };
 
@@ -101,9 +99,9 @@ const createQuery = (limitQuery, order, collectionName, lastVisible) => {
   if (limitQuery) {
     constraints.push(limit(limitQuery));
   }
-  if (Array.isArray(order.orderBy)) {
+  if (Array.isArray(order?.orderBy)) {
     constraints.push(orderBy(...order.orderBy));
-  } else if (Array.isArray(order.where)) {
+  } else if (Array.isArray(order?.where)) {
     constraints.push(where(...order.where));
   }
   if (lastVisible) {

@@ -29,12 +29,6 @@ const PsychologistsPage = () => {
   const [isAmountMatching, setIsAmountMatching] = useState(false);
 
   useEffect(() => {
-     console.log(
-       "Loaded:",
-       loadedAmountOfPsychologists,
-       "Total:",
-       amountOfPsychologists
-     );
     checkAmountOfPsychologists(
       loadedAmountOfPsychologists,
       amountOfPsychologists
@@ -58,6 +52,11 @@ const PsychologistsPage = () => {
       <SelectFilter />
       <div className={css.psychologiesListContainer}>
         <PsychologiesList />
+        {isAmountMatching && (
+          <div className={css.noMoreData}>
+            No additional records match your request.
+          </div>
+        )}
         <GreenBtn
           padding={"14px 48px"}
           onClick={() => loadFilteredData(lastVisible, queryFilter, limit)}

@@ -1,14 +1,14 @@
-.psychologistsPageContainer{
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: start;
-
+.psychologistsPageContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+  margin-bottom: 100px;
 }
 
-.psychologiesListContainer{
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    align-items: center;
-    grid-gap: 64px;
+.psychologiesListContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  grid-gap: 64px;
 }
