@@ -8,8 +8,11 @@ import eyeOff from "../../assets/icons/eye-off.svg";
 import { loginUser } from "../../firebase/login";
 import FormTitle from "../FormTitle/FormTitle";
 import FormDescription from "../FormDescription/FormDescription";
+import { useBoundStore } from "../../zustand/store";
+import { getUserInfo } from "../../zustand/selectors";
 
 const LogInForm = () => {
+  const isAuth = useBoundStore(getUserInfo).isSignedIn;
   const { register, handleSubmit } = useForm();
   const onSubmit = ({ userEmail, userPassword }) =>
     loginUser(userEmail, userPassword);
@@ -39,7 +42,7 @@ const LogInForm = () => {
             required
           />
         </div>
-        <GreenBtn height={"52px"}>Sign Up</GreenBtn>
+        <GreenBtn height={"52px"} disabled={isAuth}>Sign Up</GreenBtn>
       </form>
     </div>
   );

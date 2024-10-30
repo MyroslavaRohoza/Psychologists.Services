@@ -6,25 +6,35 @@ import {
 import { loadUserInfo } from "../js/utilities";
 import { app } from "./firebase";
 const auth = getAuth(app);
-export const registerUser = async (name, email, password) => {
+
+export const registerUser = async (displayName, email, password) => {
+  const user = await uploadDataToFirestore(auth, displayName, email, password);
+  if (user) {
+     updateProfile(user, {
+      displayName: displayName,
+    });
+    console.log("User registered:", user);
+    return user;
+  }
+  // if (user.displayName) {
+  //   loadUserInfo(user);
+  // }
+};
+
+export const uploadDataToFirestore = async (
+  auth,
+  displayName,
+  email,
+  password
+) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
-      password,
-      name
+      password
     );
     const user = userCredential.user;
-    await updateProfile(user, {
-      displayName: name,
-    })
-      .then(() => {     
-        loadUserInfo(user);
-        console.log("Profile updated successfully with name:", name);
-      })
-      .catch((error) => {
-        console.error("Error updating profile:", error);
-      });
+    return user;
   } catch (error) {
     console.error("Error registering user:", error.message);
     throw error;

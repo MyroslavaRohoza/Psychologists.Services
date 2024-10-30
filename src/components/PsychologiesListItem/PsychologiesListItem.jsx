@@ -42,11 +42,11 @@ const PsychologiesListItem = ({
   };
 
   useEffect(() => {
-    checkIsSelected(selectedIdsArr);
-  }, [selectedIdsArr]);
+    checkIsSelected(selectedIdsArr, isAuth);
+  }, [selectedIdsArr, isAuth]);
 
-  const checkIsSelected = (selectedIdsArr) => {
-    selectedIdsArr.includes(id)
+  const checkIsSelected = (selectedIdsArr, isAuth) => {
+    selectedIdsArr.includes(id) && isAuth
       ? setHeartStyles({
           color: "var(--green-mint)",
           fill: "var(--green-mint)",

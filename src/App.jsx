@@ -7,17 +7,25 @@ import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import PsychologistsPage from "./pages/PsychologistsPage/PsychologistsPage";
 import MainModal from "./components/MainModal/MainModal";
 import { useBoundStore } from "./zustand/store";
-import { getModalName } from "./zustand/selectors";
+import { getModalName, getUserInfo } from "./zustand/selectors";
 import LogInForm from "./components/LogInForm/LogInForm";
 import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
 import LogOutInfo from "./components/LogOutInfo/LogOutInfo";
 import Reviews from "./components/Reviews/Reviews";
 import AppointmentForm from "./components/AppointmentForn/AppointmentForm";
 import AuthMessage from "./components/AuthMessage/AuthMessage";
+import { useEffect } from "react";
 
 function App() {
   const modalName = useBoundStore(getModalName);
   enableMapSet();
+  const displayName = useBoundStore(getUserInfo).displayName;
+  // useEffect(() => {
+  //   if (displayName) { 
+
+  //   }
+  // }, [displayName]);
+
   return (
     <Layout>
       <Routes>

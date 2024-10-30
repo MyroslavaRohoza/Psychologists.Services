@@ -1,8 +1,7 @@
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import {loadUserInfo } from "../js/utilities";
+import { loadUserInfo } from "../js/utilities";
 import { app } from "./firebase";
 const auth = getAuth(app);
-
 
 export const loginUser = async (email, password) => {
   try {
@@ -13,8 +12,7 @@ export const loginUser = async (email, password) => {
     );
 
     const user = userCredential.user;
-    console.log("User logged in:", user);
-   loadUserInfo(user);
+    loadUserInfo(user);
 
     console.log("User logged in:", userCredential.user);
     return userCredential.user;
@@ -23,6 +21,3 @@ export const loginUser = async (email, password) => {
     throw error;
   }
 };
-
-
-

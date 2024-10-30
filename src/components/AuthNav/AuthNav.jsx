@@ -36,7 +36,7 @@ export const AuthNav = () => {
 
   return (
     <div className={`${css.headerNav} ${!isSignedIn ? css.addGap : ""}`}>
-      {isSignedIn ? (
+      {isSignedIn && displayName ? (
         <>
           <UserName name={typeof displayName === "string" && displayName} />
           <LoginBtn onClick={logOut}>Log Out</LoginBtn>
