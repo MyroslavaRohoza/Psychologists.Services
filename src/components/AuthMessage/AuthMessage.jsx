@@ -6,16 +6,15 @@ import { useCallback } from "react";
 import { setModalName, setOpen } from "../../zustand/selectors";
 
 const AuthMessage = () => {
-
   const onLoginBtnClick = useCallback(() => {
-   
-    setModalName("LogIn");   setOpen(true); 
-  })
+    setModalName("LogIn");
+    setOpen(true);
+  });
 
   const onRegistrationBtnClick = useCallback(() => {
-    setModalName("Register");setOpen(true);
-    
-  })
+    setModalName("Register");
+    setOpen(true);
+  });
   return (
     <>
       <FormTitle>
@@ -24,7 +23,9 @@ const AuthMessage = () => {
       </FormTitle>
       <div className={css.btnContainer}>
         <LoginBtn onClick={onLoginBtnClick}>Log in</LoginBtn>
-        <GreenBtn padding="14px 40px" onClick={onRegistrationBtnClick}>Register</GreenBtn>
+        <GreenBtn padding="14px 40px" onClick={onRegistrationBtnClick}>
+          Register
+        </GreenBtn>
       </div>
     </>
   );

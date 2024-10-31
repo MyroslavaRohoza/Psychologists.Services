@@ -28,7 +28,9 @@ export const registerUser = async (name, email, password) => {
               console.error("Error logging in user:", error);
             });
         })
-       
+        .catch((error) => {
+          console.error("Error signing out user:", error);
+        })
     );
   }
 };
