@@ -7,21 +7,15 @@ import FormTitle from "../FormTitle/FormTitle";
 import FormDescription from "../FormDescription/FormDescription";
 import { useBoundStore } from "../../zustand/store";
 import { getUserInfo } from "../../zustand/selectors";
-import { loadUserInfo } from "../../js/utilities";
+import { useEffect } from "react";
 
 const RegistrationForm = () => {
   const isAuth = useBoundStore(getUserInfo).isSignedIn;
   const { register, handleSubmit } = useForm();
   const onSubmit = ({ userName, userEmail, userPassword }) => {
-    const user = registerUser(userName, userEmail, userPassword);
-    if (user) {
-      loadInfo(user);
-    }
+    registerUser(userName, userEmail, userPassword);
   };
-
-  const loadInfo = async (user) => {
-    loadUserInfo(user);
-  };
+  useEffect(() => {}, [isAuth]);
 
   return (
     <div className={css.registrationFormContainer}>
