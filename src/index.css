@@ -6,17 +6,17 @@
   --dark-olive: #191a15;
   --transparent-dark-olive: rgba(25, 26, 21, 0.1);
   --green-mint: #54be96;
-  --hover-green: #36A379;
+  --hover-green: #36a379;
   --transparent-mint-green: rgba(84, 190, 150, 0.2);
-  --lime-green:#38cd3e; 
+  --lime-green: #38cd3e;
   --light-gray: #fbfbfb;
   --golden-yellow: #ffc531;
-  --body-color: #F3F3F3;
-  --grey-text: #8A8A89;
+  --body-color: #f3f3f3;
+  --grey-text: #8a8a89;
 }
 
-*, 
-*::before, 
+*,
+*::before,
 *::after {
   box-sizing: border-box;
 }
@@ -58,8 +58,22 @@ body {
 }
 
 .container {
-  padding-right: 128px;
-  padding-left: 128px;
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1128px) {
+  .container {
+    padding-right: 64px;
+    padding-left: 64px;
+  }
+}
+
+@media screen and (min-width: 1129px) {
+  .container {
+    padding-right: 128px;
+    padding-left: 128px;
+  }
 }
 
 .btnText {
@@ -70,7 +84,7 @@ body {
 
 a {
   text-decoration: none;
-   display: block;
+  display: block;
 }
 
 svg {
@@ -89,6 +103,6 @@ ul {
   margin: 0;
 }
 
-img{
+img {
   display: block;
 }

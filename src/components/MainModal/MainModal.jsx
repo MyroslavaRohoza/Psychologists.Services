@@ -1,5 +1,5 @@
 import css from "./MainModal.module.css";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Box from "@mui/material/Box";
@@ -11,6 +11,15 @@ import { getOpen, setModalName, setOpen } from "../../zustand/selectors";
 const MainModal = ({ children }) => {
   const open = useBoundStore(getOpen);
 
+  useEffect(() => {
+    const rootElement = document.getElementById("root"); 
+    if (open) {
+      rootElement.setAttribute("aria-hidden", "true");
+    } else {
+      rootElement.removeAttribute("aria-hidden");
+    }
+  }, [open]);
+
   const handleClose = useCallback(() => {
     setOpen(false);
     setModalName("");
@@ -18,9 +27,9 @@ const MainModal = ({ children }) => {
 
   return (
     <Modal
-      open={open}
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
+      open={open}
       onClose={handleClose}
       closeAfterTransition
       sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
