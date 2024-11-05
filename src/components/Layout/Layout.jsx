@@ -4,9 +4,9 @@ import { useEffect } from "react";
 import { authListener } from "../../firebase/authListener";
 
 const Layout = ({ children }) => {
-   useEffect(() => {
-     authListener();
-   }, []);
+  useEffect(() => {
+    authListener();
+  }, []);
 
   return (
     <>
