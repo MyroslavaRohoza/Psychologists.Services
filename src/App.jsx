@@ -14,28 +14,20 @@ import LogOutInfo from "./components/LogOutInfo/LogOutInfo";
 import Reviews from "./components/Reviews/Reviews";
 import AppointmentForm from "./components/AppointmentForn/AppointmentForm";
 import AuthMessage from "./components/AuthMessage/AuthMessage";
-import { useEffect } from "react";
 
 function App() {
   const modalName = useBoundStore(getModalName);
   enableMapSet();
-  const displayName = useBoundStore(getUserInfo).displayName;
-  // useEffect(() => {
-  //   if (displayName) { 
 
-  //   }
-  // }, [displayName]);
 
   return (
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
-        <Route path="/psychologists" element={<PsychologistsPage />} />
-        <Route path="/psychologists/*" element={<PsychologistsPage />}>
+        <Route path="/favorites/*" element={<FavoritesPage />}>
           <Route path="reviews" element={<Reviews />} />
         </Route>
-        <Route path="/favorites/*" element={<FavoritesPage />}>
+        <Route path="/psychologists/*" element={<PsychologistsPage />}>
           <Route path="reviews" element={<Reviews />} />
         </Route>
       </Routes>

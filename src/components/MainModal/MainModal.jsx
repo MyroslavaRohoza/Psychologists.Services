@@ -1,5 +1,5 @@
 import css from "./MainModal.module.css";
-import { useCallback } from 'react'; 
+import { useCallback } from "react";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Box from "@mui/material/Box";
@@ -19,18 +19,13 @@ const MainModal = ({ children }) => {
   return (
     <Modal
       open={open}
+      aria-labelledby="transition-modal-title"
+      aria-describedby="transition-modal-description"
       onClose={handleClose}
       closeAfterTransition
       sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
     >
-      <Fade
-        in={open}
-        // onEnter={() => console.log("Opening modal...")}
-        // onExited={() => {
-        //   console.log("Modal closed.");
-        // }}
-        timeout={{ enter: 300, exit: 300 }}
-      >
+      <Fade in={open} timeout={{ enter: 300, exit: 300 }}>
         <Box
           sx={{
             bgcolor: "var(--light-gray)",

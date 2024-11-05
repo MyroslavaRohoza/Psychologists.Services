@@ -2,7 +2,16 @@
   background-color: var(--green-mint);
   border-radius: 30px;
   border: none;
+  transition: all 0.5s linear;
 }
+
+.greenBtn:hover {
+  background-color: var(--hover-green);
+  transform: scale(1.1);
+  transition: all 0.5s linear;
+}
+
+
 
 .textColor {
   color: var(--light-gray);
