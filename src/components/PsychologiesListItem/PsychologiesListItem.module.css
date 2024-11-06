@@ -109,7 +109,65 @@
   display: none;
 }
 
+.infoContainer {
+  grid-column: 2/4;
+}
+.ratingPriceContainer {
+  justify-self: end;
+}
+
+.psychologistAvatarContainer {
+  grid-row: 1/2;
+}
+
+@media screen and (max-width: 927px) {
+  .psychologiesItem {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
+    align-items: start;
+    justify-items: start;
+    background-color: var(--light-gray);
+    border-radius: 24px;
+    grid-column-gap: 24px;
+    grid-row-gap: 24px;
+    padding: 24px;
+  }
+  .ratingPriceContainer {
+    display: flex;
+    gap: 16px;
+  }
+
+  .nameContainer {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    align-self: center;
+  }
+  .ratingPriceContainer {
+    grid-row: 2/3;
+    grid-column: span 2;
+    justify-self: start;
+  }
+  .infoContainer {
+    grid-row: 3/4;
+    grid-column: 1/3;
+  }
+  .psychologistAvatarContainer {
+    justify-self: center;
+  }
+}
+
+.nameContainer {
+  justify-self: start;
+}
+.nameContainer {
+  grid-row: 1/2;
+}
+
 @media screen and (min-width: 928px) {
+  .psychologistAvatarContainer {
+    grid-row: 1/3;
+  }
   .psychologiesItem {
     display: grid;
     grid-template-columns: repeat(3, auto);
@@ -121,31 +179,7 @@
     grid-column-gap: 24px;
     padding: 24px;
   }
+  .ratingPriceContainer {
+    gap: 32px;
+  }
 }
-.psychologiesItem {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(5, auto);
-  align-items: start;
-  justify-items: start;
-  background-color: var(--light-gray);
-  border-radius: 24px;
-  grid-column-gap: 24px;
-  padding: 24px;
-}
-
-.infoContainer {
-  grid-column: 2/4;
-}
-.ratingPriceContainer {
-  justify-self: end;
-}
-
-.psychologistAvatarContainer {
-  grid-row: 1/3;
-}
-
-.nameContainer {
-  justify-self: start;
-}
-

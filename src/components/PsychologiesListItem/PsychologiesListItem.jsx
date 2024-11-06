@@ -73,18 +73,15 @@ const PsychologiesListItem = ({
         </div>
         <img src={avatar_url} alt={name} className={css.psychologistAvatar} />
       </span>
-
       <div className={css.nameContainer}>
         <p className={`text-grey ${css.text}`}>Psychologist</p>
         <h2 className={css.name}>{name}</h2>
       </div>
-
       <div className={css.ratingPriceContainer}>
         <div className={css.ratingContainer}>
           <ReactSVG src={star} />
           <p className={`${css.rating} text-dark-olive`}>Rating: {rating}</p>
         </div>
-
         <p className={"text-dark-olive"}>
           Price / 1 hour: <span className={css.price}>{price_per_hour}$</span>
         </p>
