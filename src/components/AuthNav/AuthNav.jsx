@@ -12,8 +12,6 @@ import { useBoundStore } from "../../zustand/store";
 import UserName from "../UserName/UserName";
 import { logoutUser } from "../../firebase/logout";
 import { initialState } from "../../zustand/slices/userSlice";
-// import { logoutUser } from "../../firebase/logout";
-// import { initialState } from "../../zustand/slices/userSlice";
 
 export const AuthNav = () => {
   const isSignedIn = useBoundStore(getUserInfo).isSignedIn;

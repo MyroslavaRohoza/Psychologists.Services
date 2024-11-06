@@ -1,13 +1,16 @@
 import css from "./BurgerMenuBtn.module.css";
 import { ReactSVG } from "react-svg";
 import menu from "../../assets/icons/menu.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Drawer } from "@mui/material";
 import { HeaderMenu } from "../HeaderMenu/HeaderMenu";
 import { AuthNav } from "../AuthNav/AuthNav";
+import { useBoundStore } from "../../zustand/store";
+import { getUserInfo } from "../../zustand/selectors";
 
 export default function BurgerMenuBtn() {
   const [open, setOpen] = useState(false);
+  const isSignedIn = useBoundStore(getUserInfo).isSignedIn;
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -33,9 +36,19 @@ export default function BurgerMenuBtn() {
         />
       </button>
       <Drawer anchor={"right"} open={open} onClose={toggleDrawer(false)}>
-        <div>
-          <HeaderMenu />
-          <AuthNav />
+        <div className={css.drawer}>
+          <div className={css.menuContainer}>
+            <h2>Navigation menu</h2>
+            <HeaderMenu />
+          </div>
+          <div className={css.menuContainer}>
+            {isSignedIn ? (
+              <h2>Wellcome!</h2>
+            ) : (
+              <h2>Do you want to choose psychologists?</h2>
+            )}
+            <AuthNav />
+          </div>
         </div>
       </Drawer>
     </>
