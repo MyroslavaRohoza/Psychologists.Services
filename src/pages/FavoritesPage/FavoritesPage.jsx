@@ -5,7 +5,6 @@ import { getSelectedPsyhologists } from "../../zustand/selectors";
 
 const FavoritesPage = () => {
   const selectedPsychologists = useBoundStore(getSelectedPsyhologists);
-  console.log("selectedPsych", selectedPsychologists);
   return (
     <div>
       {selectedPsychologists.length === 0 ? (
