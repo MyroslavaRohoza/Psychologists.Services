@@ -2,26 +2,29 @@ import css from "./AppBar.module.css";
 import { HeaderMenu } from "../HeaderMenu/HeaderMenu";
 import { Logo } from "../Logo/Logo";
 import { AuthNav } from "../AuthNav/AuthNav";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import BurgerMenuBtn from "../BurgerMenuBtn/BurgerMenuBtn";
 
 export const AppBar = () => {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [isMobile, setIsMobile] = useState(
+    window.matchMedia("(max-width: 768px)").matches
+  );
+
   useEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth);
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+    const handleChange = (e) => {
+      setIsMobile(e.matches);
     };
 
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    mediaQuery.addEventListener("change", handleChange); 
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
   return (
     <nav className={css.headerNav}>
-      {width <= 768 ? (
+      {isMobile ? (
         <>
           <Logo /> <BurgerMenuBtn />
         </>
