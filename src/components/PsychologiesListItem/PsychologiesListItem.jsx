@@ -85,7 +85,7 @@ const PsychologiesListItem = ({
           <ReactSVG src={star} />
           <p className={`${css.rating} text-dark-olive`}>Rating: {rating}</p>
         </div>
-        <p className={"text-dark-olive"}>
+        <p className={`text-dark-olive" ${css.priceContainer} `}>
           Price / 1 hour: <span className={css.price}>{price_per_hour}$</span>
         </p>
         <button className={css.heartBtn} onClick={onHeartBtnClick} ref={ref}>

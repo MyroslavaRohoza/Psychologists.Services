@@ -36,7 +36,18 @@ export default function BurgerMenuBtn() {
           }}
         />
       </button>
-      <Drawer anchor={"right"} open={open} onClose={toggleDrawer(false)}>
+      <Drawer
+        anchor={"right"}
+        open={open}
+        onClose={toggleDrawer(false)}
+        sx={{
+          "& .MuiDrawer-paper": {
+            width: "70%",
+            backgroundColor: "var(--body-color)",
+            border: "none",
+          },
+        }}
+      >
         <div className={css.drawer}>
           <button onClick={toggleDrawer(false)} className={css.closeBtn}>
             <ReactSVG

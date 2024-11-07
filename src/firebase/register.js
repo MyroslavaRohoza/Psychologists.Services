@@ -20,7 +20,7 @@ export const registerUser = async (name, email, password) => {
         .then(() => {
           signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-              console.log(" User logged in:", userCredential.user);
+              console.log("User logged in:", userCredential.user);
               const user = userCredential.user;
               loadUserInfo(user);
             })

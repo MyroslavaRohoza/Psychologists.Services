@@ -119,6 +119,9 @@
 .psychologistAvatarContainer {
   grid-row: 1/2;
 }
+.priceContainer{
+  margin-left: 16px;
+}
 
 @media screen and (max-width: 927px) {
   .psychologiesItem {
