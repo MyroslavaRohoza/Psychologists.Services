@@ -14,7 +14,7 @@ import {
   setOpen,
   setSelectedPsychologists,
 } from "../../zustand/selectors";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const PsychologiesListItem = ({
   id,
@@ -35,6 +35,8 @@ const PsychologiesListItem = ({
   });
 
   const isAuth = useBoundStore(getUserInfo).isSignedIn;
+
+  const ref = useRef(null);
 
   const selectedIdsArr = useBoundStore(selectedPsychologistsIds);
   const buildLinkClass = ({ isActive }) => {
@@ -60,6 +62,7 @@ const PsychologiesListItem = ({
   const onHeartBtnClick = () => {
     if (isAuth) {
       setSelectedPsychologists(id);
+      ref.current.classList.toggle(css.pulse);
     } else {
       setOpen(true);
       setModalName("AuthMessage");
@@ -85,7 +88,7 @@ const PsychologiesListItem = ({
         <p className={"text-dark-olive"}>
           Price / 1 hour: <span className={css.price}>{price_per_hour}$</span>
         </p>
-        <button className={css.heartBtn} onClick={onHeartBtnClick}>
+        <button className={css.heartBtn} onClick={onHeartBtnClick} ref={ref}>
           <ReactSVG
             src={heart}
             beforeInjection={(svg) => {
