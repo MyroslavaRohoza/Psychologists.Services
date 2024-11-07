@@ -3,7 +3,7 @@ import css from "./HomePage.module.css";
 const HomePage = () => {
   return (
     <div className={css.homePageContainer}>
-      <div>
+      <div className={css.textContainer}>
         <h1 className={css.title}>
           The road to the <span className={css.accent}>depths</span> of the
           human soul
@@ -16,17 +16,21 @@ const HomePage = () => {
       </div>
       <div className={css.imgContainer}>
         <div className={css.questionContainer}>
-          <img src="src/assets/img/blockQuestion.png" alt="question block" />
+          <img
+            src="src/assets/img/blockQuestion.png"
+            alt="question block"
+            className={css.block}
+          />
           <img
             src="src/assets/img/fa6-solid_question.png"
-            className={css.questionImg}
+            className={`${css.questionImg} ${css.question}`}
             alt="question"
           />
         </div>
         <img
           src="src/assets/img/blockPeople.png"
           alt="block"
-          className={css.peopleBlock}
+          className={`${css.peopleBlock} ${css.block}`}
         />
         <img
           src="src/assets/img/psychologist.jpg"
