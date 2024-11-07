@@ -7,6 +7,7 @@ import { HeaderMenu } from "../HeaderMenu/HeaderMenu";
 import { AuthNav } from "../AuthNav/AuthNav";
 import { useBoundStore } from "../../zustand/store";
 import { getUserInfo } from "../../zustand/selectors";
+import x_icon from "../../assets/icons/x.svg";
 
 export default function BurgerMenuBtn() {
   const [open, setOpen] = useState(false);
@@ -37,6 +38,17 @@ export default function BurgerMenuBtn() {
       </button>
       <Drawer anchor={"right"} open={open} onClose={toggleDrawer(false)}>
         <div className={css.drawer}>
+          <button onClick={toggleDrawer(false)} className={css.closeBtn}>
+            <ReactSVG
+              src={x_icon}
+              beforeInjection={(svg) => {
+                svg.setAttribute(
+                  "style",
+                  `padding: 0px; fill:var(--green-mint); color: var(--green-mint);`
+                );
+              }}
+            />
+          </button>
           <div className={css.menuContainer}>
             <h2>Navigation menu</h2>
             <HeaderMenu />

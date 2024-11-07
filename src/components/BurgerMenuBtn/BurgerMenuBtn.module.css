@@ -16,3 +16,12 @@
   grid-template-columns: 1fr;
   gap: 8px;
 }
+.closeBtn{
+  border: none;
+  width: 24px;
+  height: 24px;
+  background-color: inherit;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
