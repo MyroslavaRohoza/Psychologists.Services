@@ -1,7 +1,7 @@
 import css from "./BurgerMenuBtn.module.css";
 import { ReactSVG } from "react-svg";
 import menu from "../../assets/icons/menu.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Drawer } from "@mui/material";
 import { HeaderMenu } from "../HeaderMenu/HeaderMenu";
 import { AuthNav } from "../AuthNav/AuthNav";
@@ -12,6 +12,16 @@ import x_icon from "../../assets/icons/x.svg";
 export default function BurgerMenuBtn() {
   const [open, setOpen] = useState(false);
   const isSignedIn = useBoundStore(getUserInfo).isSignedIn;
+
+    useEffect(() => {
+      const rootElement = document.getElementById("root");
+      if (open) {
+        rootElement.setAttribute("aria-hidden", "true");
+      } else {
+        rootElement.removeAttribute("aria-hidden");
+      }
+    }, [open]);
+
 
   const toggleDrawer = (open) => (event) => {
     if (
