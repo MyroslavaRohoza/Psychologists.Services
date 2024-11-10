@@ -35,7 +35,6 @@ import { set } from "firebase/database";
 
 export const fetchPsychologists = async (limitQuery, order) => {
   try {
-    setIsLoading(true);
     const psychologistsCollection = createQuery(
       limitQuery,
       order,
@@ -56,8 +55,6 @@ export const fetchPsychologists = async (limitQuery, order) => {
     exportData(psychologistsData);
   } catch (error) {
     throw new Error(error);
-  } finally {
-    setIsLoading(false);
   }
 };
 export const amountOfPsychologists = async (
