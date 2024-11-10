@@ -110,3 +110,7 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+.errorMessage{
+  color: rgb(214, 15, 15);
+}

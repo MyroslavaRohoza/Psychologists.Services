@@ -33,7 +33,7 @@ function App() {
         return <LogOutInfo />;
       case "AuthMessage":
         return <AuthMessage />;
-      case "AppointmentForm":
+      case "Appointment":
         return <AppointmentForm />;
       default:
         return null;
