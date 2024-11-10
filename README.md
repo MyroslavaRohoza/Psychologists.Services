@@ -2,11 +2,9 @@
 
 Care for Your Mental Well-being
 
-
 ## Description
 
 Our psychological support service is here to help you find inner peace and confidence. We offer professional assistance in a safe and trusting environment, empowering you to unlock your potential and navigate life’s challenges. Caring for your mental well-being is our top priority.
-
 
 ## Main Features
 
@@ -17,4 +15,4 @@ Our psychological support service is here to help you find inner peace and confi
 
 ## Technologies
 
-
+(/public/assets/technologies_logo/html5-logo-devextreme-multi-purpose-controls-html-javascript-3.png)
