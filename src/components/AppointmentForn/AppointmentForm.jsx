@@ -6,12 +6,36 @@ import { registerUser } from "../../firebase/register";
 import FormTitle from "../FormTitle/FormTitle";
 import FormDescription from "../FormDescription/FormDescription";
 import YourPsychologists from "../YourPsychologists/YourPsychologists";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+  userName: yup.string().required("Name is required!"),
+  userEmail: yup
+    .string()
+    .email("Email is invalid")
+    .required("Email is required!"),
+  userPhone: yup
+    .number("Please, enter a number")
+    .typeError("Please, enter a number")
+    .required("Phone is required!"),
+  userComment: yup
+    .string()
+    .min(5, "Comment must be at least 5 characters long.")
+    .max(500, "Comment cannot exceed 500 characters."),
+});
 
 const AppointmentForm = () => {
-  const { register, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       userAppointmentDate: "00:00",
     },
+    resolver: yupResolver(schema),
+    mode: "onSubmit",
   });
   const onSubmit = ({ userName, userEmail, userPassword }) => {
     registerUser(userName, userEmail, userPassword);
@@ -34,43 +58,65 @@ const AppointmentForm = () => {
       <YourPsychologists />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formContainer}>
-          <InputField
-            type="text"
-            placeholder="Name"
-            inputName="userName"
-            register={register}
-            required
-          />
+          <label>
+            <InputField
+              type="text"
+              placeholder="Name"
+              inputName="userName"
+              register={register}
+              required
+            />
+            {errors.userName && (
+              <p className="errorMessage">{errors.userName.message}</p>
+            )}
+          </label>
           <div className={css.phoneInputContainer}>
-            <InputField
-              type="tel"
-              placeholder="+380"
-              inputName="userPhone"
-              register={register}
-              required
-            />
-            <InputField
-              type="time"
-              inputName="userAppointmentDate"
-              register={register}
-              required
-            />
+            <label>
+              <InputField
+                type="tel"
+                placeholder="+380"
+                inputName="userPhone"
+                register={register}
+                required
+              />
+              {errors.userPhone && (
+                <p className="errorMessage">{errors.userPhone.message}</p>
+              )}
+            </label>
+            <label>
+              <InputField
+                type="time"
+                inputName="userAppointmentDate"
+                register={register}
+                required
+              />
+            </label>
           </div>
-          <InputField
-            type="email"
-            placeholder="Email"
-            inputName="userEmail"
-            register={register}
-            required
-          />
-          <InputField
-            type="text"
-            placeholder="Comment"
-            inputName="userComment"
-            register={register}
-            required
-            textarea
-          />
+          <label>
+            <InputField
+              type="email"
+              placeholder="Email"
+              inputName="userEmail"
+              register={register}
+              required
+            />
+            {errors.userEmail && (
+              <p className="errorMessage">{errors.userEmail.message}</p>
+            )}
+          </label>
+          <label>
+            <InputField
+              type="text"
+              placeholder="Comment"
+              inputName="userComment"
+              register={register}
+              required
+              textarea
+            />
+            {errors.userComment && (
+              <p className="errorMessage">{errors.userComment.message}</p>
+            )}
+          </label>
         </div>
         <GreenBtn height={"52px"}>Sign Up</GreenBtn>
       </form>
