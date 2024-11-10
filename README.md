@@ -15,4 +15,4 @@ Our psychological support service is here to help you find inner peace and confi
 
 ## Technologies
 
-(/public/assets/html5-logo-devextreme-multi-purpose-controls-html-javascript-3.png)
+(src/assets/html5-logo-devextreme-multi-purpose-controls-html-javascript-3.png)
