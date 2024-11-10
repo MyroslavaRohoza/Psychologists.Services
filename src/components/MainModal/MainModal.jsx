@@ -12,7 +12,7 @@ const MainModal = ({ children }) => {
   const open = useBoundStore(getOpen);
 
   useEffect(() => {
-    const rootElement = document.getElementById("root"); 
+    const rootElement = document.getElementById("root");
     if (open) {
       rootElement.setAttribute("aria-hidden", "true");
     } else {
@@ -38,24 +38,25 @@ const MainModal = ({ children }) => {
         <Box
           sx={{
             bgcolor: "var(--light-gray)",
-            p: "64px",
             borderRadius: "30px",
             outline: "none",
             position: "relative",
           }}
         >
-          <button className={css.closeBtn} onClick={handleClose}>
-            <ReactSVG
-              src={x_icon}
-              beforeInjection={(svg) => {
-                svg.setAttribute(
-                  "style",
-                  "width: 32px; height: 32px; color: var(--dark-olive);"
-                );
-              }}
-            />
-          </button>
-          {children}
+          <div className={css.modalContainer}>
+            <button className={css.closeBtn} onClick={handleClose}>
+              <ReactSVG
+                src={x_icon}
+                beforeInjection={(svg) => {
+                  svg.setAttribute(
+                    "style",
+                    "width: 32px; height: 32px; color: var(--dark-olive);"
+                  );
+                }}
+              />
+            </button>
+            {children}
+          </div>
         </Box>
       </Fade>
     </Modal>

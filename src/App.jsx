@@ -17,6 +17,7 @@ import LogInForm from "./components/LogInForm/LogInForm";
 import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
 import LogOutInfo from "./components/LogOutInfo/LogOutInfo";
 import AppointmentForm from "./components/AppointmentForn/AppointmentForm";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   const modalName = useBoundStore(getModalName);
@@ -40,7 +41,7 @@ function App() {
   };
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader color="var(--hover-green)" size={40} />}>
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />

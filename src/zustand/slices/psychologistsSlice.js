@@ -8,6 +8,7 @@ export const psychologistsSlice = (set) => ({
     selectedPsychologistTemp: new Map(),
     appointmentPsychologists: null,
     selectedPsychologistsIds: [],
+    isLoading: false,
   },
 
   setPsychologistsList: (value) =>
@@ -56,6 +57,13 @@ export const psychologistsSlice = (set) => ({
         ...state.psychologists.selectedPsychologistTemp.keys(),
       ];
     }),
+
+  setIsLoading: (value) =>
+    set(
+      produce((state) => {
+        state.psychologists.isLoading = value;
+      })
+    ),
 
   setAppointmentPsychologists: (appointmentPsychologists) =>
     set(

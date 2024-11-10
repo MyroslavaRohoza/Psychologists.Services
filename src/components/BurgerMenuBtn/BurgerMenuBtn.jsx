@@ -13,15 +13,14 @@ export default function BurgerMenuBtn() {
   const [open, setOpen] = useState(false);
   const isSignedIn = useBoundStore(getUserInfo).isSignedIn;
 
-    useEffect(() => {
-      const rootElement = document.getElementById("root");
-      if (open) {
-        rootElement.setAttribute("aria-hidden", "true");
-      } else {
-        rootElement.removeAttribute("aria-hidden");
-      }
-    }, [open]);
-
+  useEffect(() => {
+    const rootElement = document.getElementById("root");
+    if (open) {
+      rootElement.setAttribute("aria-hidden", "true");
+    } else {
+      rootElement.removeAttribute("aria-hidden");
+    }
+  }, [open]);
 
   const toggleDrawer = (open) => (event) => {
     if (

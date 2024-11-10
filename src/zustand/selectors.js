@@ -4,6 +4,8 @@ export const getOpen = (state) => state.modal.open;
 
 export const getModalName = (state) => state.modal.modalName;
 
+export const getIsLoading = (state) => state.psychologists.isLoading;
+
 export const getPsyhologists = (state) => state.psychologists;
 
 export const getUserInfo = (state) => state.user;
@@ -53,6 +55,8 @@ export const addPortionsData = useBoundStore.getState().addPortionsData;
 
 export const setSelectedPsychologists =
   useBoundStore.getState().setSelectedPsychologists;
+
+export const setIsLoading = useBoundStore.getState().setIsLoading;
 
 export const selectedPsychologistsIds = (state) =>
   state.psychologists.selectedPsychologistsIds;

@@ -5,3 +5,14 @@
   top: 20px;
   right: 20px;
 }
+
+.modalContainer {
+  padding: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .modalContainer {
+    padding: 64px;
+    min-width: 100%;
+  }
+}

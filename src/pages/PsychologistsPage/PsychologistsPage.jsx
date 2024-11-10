@@ -46,7 +46,6 @@ const PsychologistsPage = () => {
     fetchPsychologists(queryLimit, queryFilter);
   }, [fetchPsychologists, queryLimit, queryFilter]);
 
-
   return (
     <div className={css.psychologistsPageContainer}>
       <SelectFilter />

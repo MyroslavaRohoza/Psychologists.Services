@@ -15,7 +15,8 @@ import {
   setLastVisible,
   setPsychologistsAmount,
 } from "../js/utilities.js";
-import { addPortionsData } from "../zustand/selectors.js";
+import { addPortionsData, setIsLoading } from "../zustand/selectors.js";
+import { set } from "firebase/database";
 
 // const uploadDataToFirestore = async () => {
 //   try {
@@ -34,6 +35,7 @@ import { addPortionsData } from "../zustand/selectors.js";
 
 export const fetchPsychologists = async (limitQuery, order) => {
   try {
+    setIsLoading(true);
     const psychologistsCollection = createQuery(
       limitQuery,
       order,
@@ -54,6 +56,8 @@ export const fetchPsychologists = async (limitQuery, order) => {
     exportData(psychologistsData);
   } catch (error) {
     throw new Error(error);
+  } finally {
+    setIsLoading(false);
   }
 };
 export const amountOfPsychologists = async (
@@ -73,25 +77,32 @@ export const amountOfPsychologists = async (
 };
 
 export const loadFilteredData = async (lastVisible, order, limitQuery) => {
-  const nextQuery = createQuery(
-    limitQuery,
-    order,
-    "psychologists",
-    lastVisible
-  );
+  try {
+    setIsLoading(true);
+    const nextQuery = createQuery(
+      limitQuery,
+      order,
+      "psychologists",
+      lastVisible
+    );
 
-  const querySnapshot = await getDocs(nextQuery);
+    const querySnapshot = await getDocs(nextQuery);
 
-  const psychologistsPortionData = unpackData(querySnapshot);
+    const psychologistsPortionData = unpackData(querySnapshot);
 
-  addPortionsData(psychologistsPortionData);
+    addPortionsData(psychologistsPortionData);
 
-  const lastVisibleDoc = findLastDoc(querySnapshot);
-  setLastVisible(lastVisibleDoc);
+    const lastVisibleDoc = findLastDoc(querySnapshot);
+    setLastVisible(lastVisibleDoc);
 
-  const amount = await amountOfPsychologists("psychologists");
+    const amount = await amountOfPsychologists("psychologists");
 
-  setPsychologistsAmount(amount);
+    setPsychologistsAmount(amount);
+  } catch (error) {
+    throw new Error(error);
+  } finally {
+    setIsLoading(false);
+  }
 };
 
 const createQuery = (limitQuery, order, collectionName, lastVisible) => {
