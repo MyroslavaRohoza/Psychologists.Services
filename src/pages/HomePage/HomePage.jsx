@@ -44,28 +44,28 @@ const HomePage = () => {
       <div className={css.imgContainer}>
         <div className={css.questionContainer}>
           <img
-            src="src/assets/img/blockQuestion.png"
+            src="../src/assets/img/blockQuestion.png"
             alt="question block"
             className={css.block}
           />
           <img
-            src="src/assets/img/fa6-solid_question.png"
+            src="../src/assets/img/fa6-solid_question.png"
             className={`${css.questionImg} ${css.question}`}
             alt="question"
           />
         </div>
         <img
-          src="src/assets/img/blockPeople.png"
+          src="../src/assets/img/blockPeople.png"
           alt="block"
           className={`${css.peopleBlock} ${css.block}`}
         />
         <img
-          src="src/assets/img/psychologist.jpg"
+          src="../src/assets/img/psychologist.jpg"
           alt="psychologist"
           className={css.img}
         />
         <img
-          src="src/assets/img/experienced_block.png"
+          src="../src/assets/img/experienced_block.png"
           alt="experience"
           className={css.experienceBlock}
         />
