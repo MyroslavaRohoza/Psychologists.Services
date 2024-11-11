@@ -22,3 +22,19 @@ const db = getDatabase(app);
 const storage = getStorage(app);
 
 export { auth, firestore, db, storage, app }; 
+/*
+const uploadDataToFirestore = async () => {
+  try {
+    console.log("Firestore reference:", firestore);
+    const psychologistsCollection = collection(firestore, "psychologists");
+
+    for (const user of psychologists) {
+      await addDoc(psychologistsCollection, user);
+    }
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+uploadDataToFirestore();
+*/
