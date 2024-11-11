@@ -4,6 +4,11 @@ import GreenBtn from "../../components/GreenBtn/GreenBtn";
 import arrow from "../../assets/icons/arrow-up-right2.svg";
 import { useCallback } from "react";
 import { setModalName, setOpen } from "../../zustand/selectors";
+import blockQuestion from "../../assets/img/blockQuestion.png";
+import question from "../../assets/img/fa6-solid_question.png";
+import blockPeople from "../../assets/img/blockPeople.png";
+import psychologist from "../../assets/img/psychologist.jpg";
+import experienced from "../../assets/img/experienced_block.png";
 
 const HomePage = () => {
   const onBtnClick = useCallback(() => {
@@ -43,29 +48,21 @@ const HomePage = () => {
       </div>
       <div className={css.imgContainer}>
         <div className={css.questionContainer}>
+          <img src={blockQuestion} alt="question block" className={css.block} />
           <img
-            src="../src/assets/img/blockQuestion.png"
-            alt="question block"
-            className={css.block}
-          />
-          <img
-            src="../src/assets/img/fa6-solid_question.png"
+            src={question}
             className={`${css.questionImg} ${css.question}`}
             alt="question"
           />
         </div>
         <img
-          src="../src/assets/img/blockPeople.png"
+          src={blockPeople}
           alt="block"
           className={`${css.peopleBlock} ${css.block}`}
         />
+        <img src={psychologist} alt="psychologist" className={css.img} />
         <img
-          src="../src/assets/img/psychologist.jpg"
-          alt="psychologist"
-          className={css.img}
-        />
-        <img
-          src="../src/assets/img/experienced_block.png"
+          src={experienced}
           alt="experience"
           className={css.experienceBlock}
         />
