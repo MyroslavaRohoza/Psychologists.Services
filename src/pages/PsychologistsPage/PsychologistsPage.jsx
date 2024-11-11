@@ -8,7 +8,6 @@ import {
 } from "../../zustand/selectors";
 import { useBoundStore } from "../../zustand/store";
 import SelectFilter from "../../components/SelectFilter/SelectFilter";
-
 import {
   fetchPsychologists,
   loadFilteredData,

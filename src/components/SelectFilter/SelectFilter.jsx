@@ -75,7 +75,6 @@ const theme = createTheme({
           marginTop: "64px",
           marginBottom: "32px",
           display: "inline-flex",
-
           alignItems: "start",
           gap: "8px",
         },

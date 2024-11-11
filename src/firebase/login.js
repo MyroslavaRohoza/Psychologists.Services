@@ -12,9 +12,9 @@ export const loginUser = async (email, password) => {
     );
 
     const user = userCredential.user;
+
     loadUserInfo(user);
 
-    console.log("User logged in:", userCredential.user);
     return userCredential.user;
   } catch (error) {
     console.error("Error during login:", error.message);
