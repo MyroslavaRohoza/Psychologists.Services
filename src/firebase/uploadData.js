@@ -1,5 +1,4 @@
 import {
-  addDoc,
   collection,
   getCountFromServer,
   getDocs,
@@ -16,23 +15,22 @@ import {
   setPsychologistsAmount,
 } from "../js/utilities.js";
 import { addPortionsData, setIsLoading } from "../zustand/selectors.js";
-import { set } from "firebase/database";
+/*
+const uploadDataToFirestore = async () => {
+  try {
+    console.log("Firestore reference:", firestore);
+    const psychologistsCollection = collection(firestore, "psychologists");
 
-// const uploadDataToFirestore = async () => {
-//   try {
-//     console.log("Firestore reference:", firestore);
-//     const psychologistsCollection = collection(firestore, "psychologists");
+    for (const user of psychologists) {
+      await addDoc(psychologistsCollection, user);
+    }
+  } catch (error) {
+    throw new Error(error);
+  }
+};
 
-//     for (const user of psychologists) {
-//       await addDoc(psychologistsCollection, user);
-//     }
-//   } catch (error) {
-//     throw new Error(error);
-//   }
-// };
-
-// uploadDataToFirestore();
-
+uploadDataToFirestore();
+*/
 export const fetchPsychologists = async (limitQuery, order) => {
   try {
     const psychologistsCollection = createQuery(

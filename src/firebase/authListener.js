@@ -9,6 +9,6 @@ export const authListener = (user) =>
     if (user) {
       loadUserInfo(user);
     } else {
-       setUserInfo(initialState);
+      setUserInfo(initialState);
     }
   });

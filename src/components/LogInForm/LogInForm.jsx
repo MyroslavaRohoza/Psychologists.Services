@@ -1,10 +1,7 @@
 import css from "./LogInForm.module.css";
-import { ReactSVG } from "react-svg";
 import { useForm } from "react-hook-form";
 import InputField from "../InputField/InputField";
 import GreenBtn from "../GreenBtn/GreenBtn";
-import eye from "../../assets/icons/eye.svg";
-import eyeOff from "../../assets/icons/eye-off.svg";
 import { loginUser } from "../../firebase/login";
 import FormTitle from "../FormTitle/FormTitle";
 import FormDescription from "../FormDescription/FormDescription";

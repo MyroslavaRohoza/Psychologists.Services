@@ -24,6 +24,6 @@ export const registerUser = async (name, email, password) => {
 
     loadUserInfo(userCredential.user);
   } catch (error) {
-    console.error("Error updating user profile:", error);
+    console.error("Error updating user profile:", error.message);
   }
 };
