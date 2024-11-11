@@ -17,3 +17,5 @@ Our psychological support service is here to help you find inner peace and confi
 
 ![HTML, CSS, JS](/src/assets/technologies_logo/html5-logo-devextreme-multi-purpose-controls-html-javascript-3.png) ![React](/src/assets/technologies_logo/react.png) ![Firebase](/src/assets/technologies_logo/Firebase.png) ![Zustand](/src/assets/technologies_logo/zustand-logo.png)
 ![Vite](/src/assets/technologies_logo/vite.png)
+
+## Preview
