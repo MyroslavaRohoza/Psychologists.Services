@@ -51,7 +51,7 @@ export default function BurgerMenuBtn() {
         onClose={toggleDrawer(false)}
         sx={{
           "& .MuiDrawer-paper": {
-            width: "70%",
+            width: "80%",
             backgroundColor: "var(--body-color)",
             border: "none",
           },

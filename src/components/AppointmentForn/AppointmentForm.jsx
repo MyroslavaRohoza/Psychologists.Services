@@ -58,7 +58,7 @@ const AppointmentForm = () => {
       <YourPsychologists />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formContainer}>
-          <label>
+          <span>
             <InputField
               type="text"
               placeholder="Name"
@@ -69,9 +69,9 @@ const AppointmentForm = () => {
             {errors.userName && (
               <p className="errorMessage">{errors.userName.message}</p>
             )}
-          </label>
+          </span>
           <div className={css.phoneInputContainer}>
-            <label>
+            <span>
               <InputField
                 type="tel"
                 placeholder="+380"
@@ -82,15 +82,15 @@ const AppointmentForm = () => {
               {errors.userPhone && (
                 <p className="errorMessage">{errors.userPhone.message}</p>
               )}
-            </label>
-            <label>
+            </span>
+            <span>
               <InputField
                 type="time"
                 inputName="userAppointmentDate"
                 register={register}
                 required
               />
-            </label>
+            </span>
           </div>
           <label>
             <InputField
@@ -104,7 +104,7 @@ const AppointmentForm = () => {
               <p className="errorMessage">{errors.userEmail.message}</p>
             )}
           </label>
-          <label>
+          <span>
             <InputField
               type="text"
               placeholder="Comment"
@@ -116,7 +116,7 @@ const AppointmentForm = () => {
             {errors.userComment && (
               <p className="errorMessage">{errors.userComment.message}</p>
             )}
-          </label>
+          </span>
         </div>
         <GreenBtn height={"52px"}>Sign Up</GreenBtn>
       </form>

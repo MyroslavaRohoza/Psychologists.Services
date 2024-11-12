@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-const schema = yup.object().shape({
+const registerSchema = yup.object().shape({
   userName: yup.string().required("Name is required!"),
   userEmail: yup
     .string()
@@ -31,7 +31,7 @@ const RegistrationForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(registerSchema),
     mode: "onSubmit",
   });
   const onSubmit = ({ userName, userEmail, userPassword }) => {
@@ -51,7 +51,7 @@ const RegistrationForm = () => {
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formContainer}>
-          <label>
+          <span>
             <InputField
               type="text"
               placeholder="Name"
@@ -62,8 +62,8 @@ const RegistrationForm = () => {
             {errors.userName && (
               <p className="errorMessage">{errors.userName.message}</p>
             )}
-          </label>
-          <label>
+          </span>
+          <span>
             <InputField
               type="email"
               placeholder="Email"
@@ -74,8 +74,8 @@ const RegistrationForm = () => {
             {errors.userEmail && (
               <p className="errorMessage">{errors.userEmail.message}</p>
             )}
-          </label>
-          <label>
+          </span>
+          <span>
             <InputField
               type="password"
               placeholder="Password"
@@ -86,7 +86,7 @@ const RegistrationForm = () => {
             {errors.userPassword && (
               <p className="errorMessage">{errors.userPassword.message}</p>
             )}
-          </label>
+          </span>
         </div>
         <GreenBtn height={"52px"} disabled={isAuth}>
           Sign Up

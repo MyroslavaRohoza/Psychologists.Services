@@ -10,9 +10,9 @@
   gap: 30px;
   margin-right: 20px;
 }
+
 @media screen and (min-width: 982px) {
   .headerMenu{
     gap: 130px;
   }
-  
 }

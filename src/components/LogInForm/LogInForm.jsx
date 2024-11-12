@@ -7,11 +7,10 @@ import FormTitle from "../FormTitle/FormTitle";
 import FormDescription from "../FormDescription/FormDescription";
 import { useBoundStore } from "../../zustand/store";
 import { getUserInfo } from "../../zustand/selectors";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
-const schema = yup.object().shape({
-  userName: yup.string().required("Name is required!"),
+const logInSchema = yup.object().shape({
   userEmail: yup
     .string()
     .email("Email is invalid")
@@ -30,11 +29,13 @@ const LogInForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(logInSchema),
     mode: "onSubmit",
   });
-  const onSubmit = ({ userEmail, userPassword }) =>
+  const onSubmit = ({ userEmail, userPassword }) => {
+    console.log("lp");
     loginUser(userEmail, userPassword);
+  };
   return (
     <div className={css.logInFormContainer}>
       <div>
@@ -46,7 +47,7 @@ const LogInForm = () => {
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formContainer}>
-          <label>
+          <span>
             <InputField
               type="email"
               placeholder="Email"
@@ -57,8 +58,8 @@ const LogInForm = () => {
             {errors.userEmail && (
               <p className="errorMessage">{errors.userEmail.message}</p>
             )}
-          </label>
-          <label>
+          </span>
+          <span>
             <InputField
               type="password"
               placeholder="Password"
@@ -69,10 +70,10 @@ const LogInForm = () => {
             {errors.userPassword && (
               <p className="errorMessage">{errors.userPassword.message}</p>
             )}
-          </label>
+          </span>
         </div>
         <GreenBtn height={"52px"} disabled={isAuth}>
-          Sign Up
+          Log In
         </GreenBtn>
       </form>
     </div>

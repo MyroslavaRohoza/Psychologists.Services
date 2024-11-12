@@ -8,17 +8,17 @@ import BurgerMenuBtn from "../BurgerMenuBtn/BurgerMenuBtn";
 
 export const AppBar = () => {
   const [isMobile, setIsMobile] = useState(
-    window.matchMedia("(max-width: 768px)").matches
+    window.matchMedia("(max-width: 864px)").matches
   );
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const mediaQuery = window.matchMedia("(max-width: 864px)");
 
     const handleChange = (e) => {
       setIsMobile(e.matches);
     };
 
-    mediaQuery.addEventListener("change", handleChange); 
+    mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
