@@ -37,7 +37,7 @@ export const fetchPsychologists = async (limitQuery, order) => {
 
     exportData(psychologistsData);
   } catch (error) {
-    throw new Error(error);
+    console.log(error.message);
   }
 };
 export const amountOfPsychologists = async (
@@ -52,7 +52,7 @@ export const amountOfPsychologists = async (
 
     return amount;
   } catch (error) {
-    throw new Error(error);
+    console.log(error.message);
   }
 };
 
@@ -79,7 +79,7 @@ export const loadFilteredData = async (lastVisible, order, limitQuery) => {
 
     setPsychologistsAmount(amount);
   } catch (error) {
-    throw new Error(error);
+    console.log(error.message);
   } finally {
     setIsLoading(false);
   }

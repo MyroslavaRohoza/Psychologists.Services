@@ -8,6 +8,7 @@ import FormDescription from "../FormDescription/FormDescription";
 import YourPsychologists from "../YourPsychologists/YourPsychologists";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { setModalName, setOpen } from "../../zustand/selectors";
 
 const appointmentSchema = yup.object().shape({
   userName: yup.string().required("Name is required!"),
@@ -37,8 +38,9 @@ const AppointmentForm = () => {
     resolver: yupResolver(appointmentSchema),
     mode: "onSubmit",
   });
-  const onSubmit = ({ userName, userEmail, userPassword }) => {
-    registerUser(userName, userEmail, userPassword);
+  const onSubmit = () => {
+    setOpen(false);
+    setModalName("");
   };
 
   return (

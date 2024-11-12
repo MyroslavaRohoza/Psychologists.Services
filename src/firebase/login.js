@@ -12,7 +12,6 @@ export const loginUser = async (email, password) => {
     );
 
     const user = userCredential.user;
-    console.log("userCredential", userCredential);
 
     await user.reload();
 

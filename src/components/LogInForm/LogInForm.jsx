@@ -6,7 +6,7 @@ import { loginUser } from "../../firebase/login";
 import FormTitle from "../FormTitle/FormTitle";
 import FormDescription from "../FormDescription/FormDescription";
 import { useBoundStore } from "../../zustand/store";
-import { getUserInfo } from "../../zustand/selectors";
+import { getUserInfo, setModalName, setOpen } from "../../zustand/selectors";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -32,9 +32,10 @@ const LogInForm = () => {
     resolver: yupResolver(logInSchema),
     mode: "onSubmit",
   });
-  const onSubmit = ({ userEmail, userPassword }) => {
-    console.log("lp");
-    loginUser(userEmail, userPassword);
+  const onSubmit = async ({ userEmail, userPassword }) => {
+    await loginUser(userEmail, userPassword);
+    setOpen(false);
+    setModalName("");
   };
   return (
     <div className={css.logInFormContainer}>

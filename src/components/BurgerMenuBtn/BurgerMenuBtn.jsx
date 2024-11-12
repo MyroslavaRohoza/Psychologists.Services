@@ -29,7 +29,6 @@ export default function BurgerMenuBtn() {
     ) {
       return;
     }
-
     setOpen(open);
   };
   return (

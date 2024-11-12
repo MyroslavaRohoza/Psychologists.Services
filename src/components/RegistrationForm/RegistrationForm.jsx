@@ -6,7 +6,7 @@ import { registerUser } from "../../firebase/register";
 import FormTitle from "../FormTitle/FormTitle";
 import FormDescription from "../FormDescription/FormDescription";
 import { useBoundStore } from "../../zustand/store";
-import { getUserInfo } from "../../zustand/selectors";
+import { getUserInfo, setModalName, setOpen } from "../../zustand/selectors";
 import { useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -34,8 +34,10 @@ const RegistrationForm = () => {
     resolver: yupResolver(registerSchema),
     mode: "onSubmit",
   });
-  const onSubmit = ({ userName, userEmail, userPassword }) => {
-    registerUser(userName, userEmail, userPassword);
+  const onSubmit = async ({ userName, userEmail, userPassword }) => {
+    await registerUser(userName, userEmail, userPassword);
+       setOpen(false);
+       setModalName("");
   };
   useEffect(() => {}, [isAuth]);
 
