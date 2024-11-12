@@ -3,6 +3,7 @@ import eye from "../../assets/icons/eye.svg";
 import eyeOff from "../../assets/icons/eye-off.svg";
 import { ReactSVG } from "react-svg";
 import { useState } from "react";
+import clsx from "clsx";
 
 const InputField = ({
   type,
@@ -24,7 +25,7 @@ const InputField = ({
       maxLength="500"
       placeholder={placeholder}
       {...register(inputName, { required })}
-      className={`${css.input} ${css.textarea} ${addClass && addClass}`}
+      className={clsx(css.input, css.textarea, addClass && addClass)}
     />
   ) : (
     <div className={type === "password" ? css.inputPasswordContainer : ""}>

@@ -32,11 +32,8 @@ export const psychologistsSlice = (set) => ({
       const selectedPsychologist = state.psychologists.psychologistsList.find(
         (psychologist) => psychologist.id === psychologistId
       );
-
       if (!(state.psychologists.selectedPsychologistTemp instanceof Map)) {
-        state.psychologists.selectedPsychologistTemp = new Map(
-          ...state.psychologists.selectedPsychologistTemp
-        );
+        state.psychologists.selectedPsychologistTemp = new Map();
       }
       const isSelectedPsychologist =
         state.psychologists.selectedPsychologistTemp.has(psychologistId);
