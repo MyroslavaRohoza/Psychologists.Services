@@ -5,7 +5,6 @@ import { useCallback } from "react";
 import { setAppointmentPsychologists, setModalName, setOpen } from "../../zustand/selectors";
 
 const ReadMore = ({ reviews, psychologistsInfo }) => {
-  console.log(psychologistsInfo);
   const onAppointmentBtnClick = useCallback(() => {
     setOpen(true);
     setModalName("Appointment");
