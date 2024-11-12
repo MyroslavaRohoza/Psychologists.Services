@@ -17,7 +17,6 @@ export const useBoundStore = create(
     {
       name: "user",
       getStorage: () => localStorage,
-      partialize: (state) => ({ user: state }),
     }
   )
 );
