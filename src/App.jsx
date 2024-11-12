@@ -11,6 +11,7 @@ const PsychologistsPage = lazy(() =>
 );
 const Reviews = lazy(() => import("./components/Reviews/Reviews"));
 const AuthMessage = lazy(() => import("./components/AuthMessage/AuthMessage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 import { useBoundStore } from "./zustand/store";
 import { getModalName } from "./zustand/selectors";
 import LogInForm from "./components/LogInForm/LogInForm";
@@ -51,6 +52,7 @@ function App() {
           <Route path="/psychologists/*" element={<PsychologistsPage />}>
             <Route path="reviews" element={<Reviews />} />
           </Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <MainModal>{chooseModal(modalName)}</MainModal>
       </Layout>

@@ -4,6 +4,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  transition: all 0.7s linear;
 }
 
 .modalContainer {
@@ -15,4 +16,9 @@
     padding: 64px;
     min-width: 100%;
   }
+}
+
+.closeBtn:hover {
+  transition: all 0.5s linear;
+  transform: scale(1.2);
 }

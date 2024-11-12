@@ -47,6 +47,7 @@ const MainModal = ({ children }) => {
             <button className={css.closeBtn} onClick={handleClose}>
               <ReactSVG
                 src={x_icon}
+                className={css.xIcon}
                 beforeInjection={(svg) => {
                   svg.setAttribute(
                     "style",

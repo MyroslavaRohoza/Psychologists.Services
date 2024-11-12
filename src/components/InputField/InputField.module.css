@@ -33,3 +33,13 @@
   resize: none;
   font-family: inherit;
 }
+
+.input:hover, .textarea:hover {
+  border: 1px solid var(--green-mint);
+  transition: all 0.5s linear;
+}
+
+.input:focus, .textarea:focus {
+  border: 1px solid var(--hover-green);
+  transition: all 0.5s linear;
+}

@@ -1,0 +1,8 @@
+.notFoundMessage {
+  color: rgb(221, 10, 10);
+  font-weight: 600; 
+}
+
+.notFoundPage {
+ margin: 0 auto;
+}

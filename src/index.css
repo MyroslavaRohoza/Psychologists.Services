@@ -86,9 +86,7 @@ body {
   .btnText {
     font-size: 16px;
   }
-
 }
-
 
 a {
   text-decoration: none;
@@ -100,9 +98,26 @@ svg {
 }
 
 button {
-  cursor: pointer;
   padding: 0;
   margin: 0;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--green-mint);
+  transition: all 0.5s linear;
+}
+
+a:focus {
+  color: var(--hover-green);
+  transition: all 0.5s linear;
 }
 
 ul {
@@ -111,6 +126,6 @@ ul {
   margin: 0;
 }
 
-.errorMessage{
+.errorMessage {
   color: rgb(214, 15, 15);
 }
