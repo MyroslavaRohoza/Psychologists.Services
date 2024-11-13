@@ -29,12 +29,11 @@ const HomePage = () => {
             experienced psychologists.
           </p>
         </div>
-        <GreenBtn padding="18px 50px">
+        <GreenBtn padding="18px 50px" onClick={onBtnClick}>
           <span className={css.btnText}>
             Get started
             <ReactSVG
               src={arrow}
-              onClick={onBtnClick}
               beforeInjection={(svg) => {
                 svg.setAttribute(
                   "style",
