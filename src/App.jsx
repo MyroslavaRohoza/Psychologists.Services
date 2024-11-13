@@ -22,6 +22,7 @@ import Loader from "./components/Loader/Loader";
 
 function App() {
   const modalName = useBoundStore(getModalName);
+  
   enableMapSet();
 
   const chooseModal = (modalName) => {
