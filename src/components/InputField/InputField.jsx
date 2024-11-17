@@ -47,7 +47,7 @@ const InputField = ({
         type={showPassword && type === "password" ? "text" : type}
         placeholder={placeholder}
         {...register(inputName, { required })}
-        className={`${css.input} ${addClass && addClass}`}
+        className={clsx(css.input, addClass && addClass)}
       />
     </div>
   );
